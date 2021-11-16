@@ -72,7 +72,9 @@ testthat::expect_false(package_name %in% installed_python_packages$package)
 
 Install it:
 
-```{r}
+THIS IS WHERE NO CODE IS BEING RUN
+
+```
 install_python_packages(
   ormr_folder_name = ormr_folder_name,
   package_names = package_name

@@ -1,5 +1,8 @@
 test_that("use", {
-  python_binary_path <- get_python_binary_path()
+  ormr_folder_name <- tempfile()
+  python_binary_path <- get_python_binary_path(
+    ormr_folder_name = ormr_folder_name
+  )
   expect_true(
     stringr::str_detect(
       string = python_binary_path,

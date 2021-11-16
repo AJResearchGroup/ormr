@@ -1,10 +1,21 @@
 test_that("use", {
-  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
-  if (!is_gcae_installed()) return()
   ormr_folder_name <- tempfile()
   install_miniconda(
     ormr_folder_name = ormr_folder_name
   )
-  install_python_packages(ormr_folder_name = ormr_folder_name, )
+  package_name <- "tensorflow"
+
+  t_before <- list_python_packages(ormr_folder_name = ormr_folder_name)
+  expect_false(package_name %in% t_before$package)
+
+  install_python_packages(
+    ormr_folder_name = ormr_folder_name,
+    package_names = "tensorflow"
+  )
+
+  t_after <- list_python_packages(ormr_folder_name = ormr_folder_name)
+  expect_true(package_name %in% t_after$package)
+
+
   unlink(gcae_options$gcae_folder, recursive = TRUE)
 })
