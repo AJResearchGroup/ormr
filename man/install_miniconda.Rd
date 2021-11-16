@@ -22,12 +22,11 @@ to \link[reticulate]{install_miniconda}
 }
 \examples{
 # Install to a temporary folder
-gcae_options <- create_gcae_options(gcae_folder = get_gcaer_tempfilename())
-miniconda_path <- get_miniconda_path(gcae_options)
-install_miniconda(miniconda_path = miniconda_path)
+ormr_folder_name <- tempfile()
+install_miniconda(ormr_folder_name = ormr_folder_name)
 
 # Clean up
-unlink(gcae_options$gcae_folder, recursive = TRUE)
+unlink(ormr_folder_name, recursive = TRUE)
 }
 \author{
 Richèl J.C. Bilderbeek

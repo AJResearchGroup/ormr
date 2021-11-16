@@ -1,13 +1,24 @@
-#' Determine if Conda is installed in the `ormr_folder_name`
+#' Determine if Miniconda is installed
 #' @inheritParams default_params_doc
+#' @return TRUE if Miniconda is installed
+#' @examples
+#' is_miniconda_installed(ormr_folder_name = tempfile())
+#' @author Richèl J.C. Bilderbeek
 #' @export
-is_miniconda_installed <- function(ormr_folder_name) {
-  # These are the same tests as in reticulate::install_miniconda.
-  # These functions, however, are not exported.
-  # As reticulate currently has 400 open
-  # Issues (see https://github.com/rstudio/reticulate/issues),
-  # I will not add an Issue to request to export those functions
-  normalized_path <- normalizePath(ormr_folder_name, mustWork = FALSE)
-  reticulate:::miniconda_exists(path = normalized_path) &&
-    reticulate:::miniconda_test(path = normalized_path)
+is_miniconda_installed <- function(
+  ormr_folder_name,
+  verbose = FALSE
+  ) {
+  result <- FALSE
+  tryCatch({
+    ormr::check_miniconda_is_installed(ormr_folder_name = ormr_folder_name)
+    result <- TRUE
+  },
+  error = function(e) {
+    if (verbose) {
+      message(e$message)
+    }
+  }
+  )
+  result
 }
