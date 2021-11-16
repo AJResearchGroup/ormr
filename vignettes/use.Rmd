@@ -1,0 +1,116 @@
+---
+title: "use"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{use}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(ormr)
+```
+
+# Introduction
+
+ * Install a Conda environment
+ * Install Python packages
+ * Run a Python script with that Conda environment and packages
+
+We use only one point of contact, `folder_name`,
+which is the location where the Python environment and packages
+are installed:
+
+```{r}
+folder_name <- tempfile()
+folder_name
+```
+
+Initially, nothing is installed, this must be verified
+
+```{r}
+is_conda_installed <- function(folder_name) {
+  # ...
+}
+testthat::expect_false(is_conda_installed(folder_name = folder_name))
+```
+
+Time to install Conda (or any other environment):
+
+```{r}
+install_conda <- function(folder_name) {
+  # ...
+}
+install_conda(folder_name = folder_name)
+testthat::expect_true(is_conda_installed(folder_name = folder_name))
+```
+
+Get a list of the installed Python packages
+(or more likely: a tibble):
+
+```{r}
+get_installed_python_packages <- function(folder_name) {
+  # ...
+}
+installed_python_packages <- get_installed_python_packages(
+  folder_name = folder_name
+)
+```
+
+Tensorflow (or any other absent package) will not be in that list yet:
+
+```{r}
+package_name <- "tensorflow"
+# Or something more elaborate, if 'installed_python_packages' is a tibble
+testthat::expect_false(package_name %in% installed_python_packages) 
+```
+
+
+Install it:
+
+```{r}
+install_python_packages <- function(folder_name, package_name) {
+  # ...
+}
+install_python_packages(folder_name = folder_name, package_name = package_name)
+```
+
+Now the Python package should be installed:
+
+```{r}
+installed_python_packages <- get_installed_python_packages(
+  folder_name = folder_name
+)
+
+# Or something more elaborate, if installed_python_packages is a tibble
+testthat::expect_true(package_name %in% installed_python_packages) 
+```
+
+Great, with our environment and packages in place,
+we run a Python script with those packages with command-line arguments
+
+```
+run_python_script <- function(
+  folder_name,
+  python_script_path,
+  args
+) {
+  # ...
+}
+
+python_script_path <- system.file("extdata", "run_gcae.py", package = "ormr")
+
+output <- run_python_script(
+  folder_name = folder_name,
+  python_script_path = python_script_path,
+  args = "--help"
+)
+testthat::expect_true(length(output) > 0)
+```
