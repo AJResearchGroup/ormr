@@ -10,6 +10,8 @@ install_python_packages(ormr_folder_name, package_names, verbose = FALSE)
 \item{ormr_folder_name}{name of the folder where \code{ormr}
 installs all Python environments and packages}
 
+\item{package_names}{names of one or more Python packages}
+
 \item{verbose}{the verbosity of a function.
 Set to \link{TRUE} for more output.
 Use \link[plinkr]{check_verbose} to detect if this argument is valid.}

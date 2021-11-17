@@ -32,14 +32,5 @@ create_conda_env <- function(
     envname = ormr_folder_name,
     python_version = python_version
   )
-
-  # Old stuff
-  if (1 == 2) {
-    miniconda_path = get_miniconda_path(ormr_folder_name)
-    dir.create(path = miniconda_path, recursive = TRUE, showWarnings = FALSE)
-    tryCatch(
-      reticulate::install_miniconda(path = normalizePath(miniconda_path)),
-    )
-  }
   invisible(ormr_folder_name)
 }
