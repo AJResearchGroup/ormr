@@ -22,8 +22,8 @@ jobs:
 #      - name: Install nvidia-cuda-toolkit
 #        run: sudo apt install -qq nvidia-cuda-toolkit
 
-#      - name: Install libcurl4-openssl-dev
-#        run: sudo apt install -qq libcurl4-openssl-dev
+      - name: Install libcurl4-openssl-dev
+        run: sudo apt install -qq libcurl4-openssl-dev
 
 #      - name: Install libpoppler-cpp-dev
 #        run: sudo apt install -qq libpoppler-cpp-dev
