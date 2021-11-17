@@ -14,7 +14,7 @@ installs all Python environments and packages}
 Create a \code{ormr} report, to be used when reporting bugs
 }
 \examples{
-ormr_report()
+ormr_report(ormr_folder_name = tempfile())
 }
 \author{
 Richèl J.C. Bilderbeek

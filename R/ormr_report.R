@@ -1,7 +1,7 @@
 #' Create a `ormr` report, to be used when reporting bugs
 #' @inheritParams default_params_doc
 #' @examples
-#' ormr_report()
+#' ormr_report(ormr_folder_name = tempfile())
 #' @author Richèl J.C. Bilderbeek
 #' @export
 ormr_report <- function(

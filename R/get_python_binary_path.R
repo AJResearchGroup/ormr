@@ -353,5 +353,5 @@
 get_python_binary_path <- function(
   ormr_folder_name
 ) {
-  reticulate:::python_binary_path(dir = ormr_folder_name)
+  reticulate:::python_binary_path(dir = ormr_folder_name) # nolint create an Issue to suggest to export this function, see https://github.com/rstudio/reticulate/issues/1086
 }
