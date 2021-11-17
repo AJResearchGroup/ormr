@@ -13,9 +13,14 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 Suggests: 
+    devtools,
     knitr,
     plinkr,
+    rappdirs,
+    reticulate,
     rmarkdown,
-    testthat (>= 3.0.0)
+    stringr,
+    testthat (>= 3.0.0),
+    tibble
 Config/testthat/edition: 3
 VignetteBuilder: knitr

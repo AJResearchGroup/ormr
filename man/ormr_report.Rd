@@ -2,7 +2,7 @@
 % Please edit documentation in R/ormr_report.R
 \name{ormr_report}
 \alias{ormr_report}
-\title{Create a \link{ormr} report, to be used when reporting bugs}
+\title{Create a \code{ormr} report, to be used when reporting bugs}
 \usage{
 ormr_report(ormr_folder_name)
 }
@@ -11,7 +11,7 @@ ormr_report(ormr_folder_name)
 installs all Python environments and packages}
 }
 \description{
-Create a \link{ormr} report, to be used when reporting bugs
+Create a \code{ormr} report, to be used when reporting bugs
 }
 \examples{
 ormr_report()

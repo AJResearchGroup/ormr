@@ -1,5 +1,6 @@
 #' List the Python packages and their versions
 #' @inheritParams default_params_doc
+#' @param python_bin path to the Python binary
 #' @return a \link[tibble]{tibble} with two rows:
 #'  * `package`: the package name
 #'  * `version`: the package version

@@ -4,7 +4,7 @@
 \alias{install_pip}
 \title{Install \code{pip}}
 \usage{
-install_pip(ormr_folder_name = create_ormr_folder_name(), verbose = FALSE)
+install_pip(ormr_folder_name, verbose = FALSE)
 }
 \arguments{
 \item{ormr_folder_name}{name of the folder where \code{ormr}

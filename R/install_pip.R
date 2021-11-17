@@ -6,7 +6,7 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 install_pip <- function(
-  ormr_folder_name = create_ormr_folder_name(),
+  ormr_folder_name,
   verbose = FALSE
 ) {
   if (ormr::is_pip_installed(ormr_folder_name = ormr_folder_name)) {

@@ -9,6 +9,8 @@ is_python_package_installed(ormr_folder_name, package_name)
 \arguments{
 \item{ormr_folder_name}{name of the folder where \code{ormr}
 installs all Python environments and packages}
+
+\item{package_name}{the Python package's name}
 }
 \value{
 nothing

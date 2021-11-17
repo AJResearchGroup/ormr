@@ -1,5 +1,6 @@
 #' Determine if a Python package is installed
 #' @inheritParams default_params_doc
+#' @param package_name the Python package's name
 #' @return nothing
 #' @author Richèl J.C. Bilderbeek
 #' @export

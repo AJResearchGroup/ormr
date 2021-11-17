@@ -7,6 +7,8 @@
 upgrade_pip(python_bin_path = reticulate::py_config()$python, verbose = FALSE)
 }
 \arguments{
+\item{python_bin_path}{path to Python binary}
+
 \item{verbose}{the verbosity of a function.
 Set to \link{TRUE} for more output.
 Use \link[plinkr]{check_verbose} to detect if this argument is valid.}

@@ -5,11 +5,13 @@
 \title{This function does nothing. It is intended to inherit is parameters'
 documentation.}
 \usage{
-default_params_doc(ormr_folder_name, verbose)
+default_params_doc(ormr_folder_name, python_script_path, verbose)
 }
 \arguments{
 \item{ormr_folder_name}{name of the folder where \code{ormr}
 installs all Python environments and packages}
+
+\item{python_script_path}{path to a Python script}
 
 \item{verbose}{the verbosity of a function.
 Set to \link{TRUE} for more output.

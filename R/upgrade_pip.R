@@ -1,5 +1,6 @@
 #' Upgrade pip
 #' @inheritParams default_params_doc
+#' @param python_bin_path path to Python binary
 #' @return the text of the installation
 #' @export
 upgrade_pip <- function(

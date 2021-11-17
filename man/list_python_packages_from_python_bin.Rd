@@ -7,6 +7,8 @@
 list_python_packages_from_python_bin(python_bin, verbose = FALSE)
 }
 \arguments{
+\item{python_bin}{path to the Python binary}
+
 \item{verbose}{the verbosity of a function.
 Set to \link{TRUE} for more output.
 Use \link[plinkr]{check_verbose} to detect if this argument is valid.}

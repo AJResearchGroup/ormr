@@ -1,4 +1,4 @@
-#' Create a \link{ormr} report, to be used when reporting bugs
+#' Create a `ormr` report, to be used when reporting bugs
 #' @inheritParams default_params_doc
 #' @examples
 #' ormr_report()
@@ -9,27 +9,25 @@ ormr_report <- function(
 ) {
   message("OS: ", rappdirs::app_dir()$os)
   message("ormr_folder_name: ", ormr_folder_name)
-  miniconda_path <- ormr::get_miniconda_path(
-    ormr_folder_name = ormr_folder_name
-  )
-  message("Miniconda path: ", miniconda_path)
-  if (ormr::is_miniconda_installed(miniconda_path)) {
-    message("Miniconda installed: yes")
+  if (ormr::does_conda_env_exists(ormr_folder_name = ormr_folder_name)) {
+    message("Conda environment exists: yes")
   } else {
-    message("Miniconda installed: no")
+    message("Conda environment exists: no")
   }
-  if (ormr::is_pip_installed(ormr_folder_name = ormr_folder_name)) {
-    message("pip installed: yes")
+  if (ormr::does_conda_env_exists(ormr_folder_name = ormr_folder_name)) {
+    message("Installed Python packages: ")
     message(
       paste0(
         knitr::kable(
-          ormr::list_python_packages(ormr_folder_name = ormr_folder_name)
+          get_installed_python_packages(
+            ormr_folder_name = ormr_folder_name
+          )
         ),
         collapse = " \n"
       )
     )
   } else {
-    message("pip installed: no")
+    message("Installed Python packages: N/A (need Conda environment to exist)")
   }
   message(paste0(devtools::session_info(), collapse = "\n"))
 }

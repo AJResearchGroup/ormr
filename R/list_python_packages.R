@@ -56,8 +56,7 @@ list_python_packages <- function(
   if (!has_pip) {
     stop(
       "pip is not installed. \n",
-      "'gcae_options$gcae_folder': ", gcae_options$gcae_folder, " \n",
-      "'gcae_options$gcae_version': ", gcae_options$gcae_version, " \n",
+      "'ormr_folder_name': ", ormr_folder_name, " \n",
       "Full error message: ", text, " \n",
       " \n",
       "Tip: run 'ormr::install_pip()'"

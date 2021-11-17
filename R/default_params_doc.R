@@ -3,6 +3,7 @@
 #'
 #' @param ormr_folder_name name of the folder where `ormr`
 #' installs all Python environments and packages
+#' @param python_script_path path to a Python script
 #' @param verbose the verbosity of a function.
 #' Set to \link{TRUE} for more output.
 #' Use \link[plinkr]{check_verbose} to detect if this argument is valid.
@@ -12,6 +13,7 @@
 #'   functions to find the documentation parameters
 default_params_doc <- function(
   ormr_folder_name,
+  python_script_path,
   verbose
 ) {
   # Nothing
