@@ -14,91 +14,160 @@ knitr::opts_chunk$set(
 )
 ```
 
+# `ormr`
+
+`ormr` allows to work with Python installed to a custom location,
+using only a single point of contact.
+
 ```{r setup}
 library(ormr)
 ```
-
-# Introduction
-
- * Install a Conda environment
- * Install Python packages
- * Run a Python script with that Conda environment and packages
 
 We use only one point of contact, `ormr_folder_name`,
 which is the folder where `ormr` installs the Python environment and packages
 needed:
 
 ```{r}
-ormr_folder_name <- tempfile()
+ormr_folder_name <- tempfile(pattern = "ormr_")
 ormr_folder_name
 ```
 
-Initially, nothing is installed, this must be verified
+# Goal
+
+The goal of this vignette is to show how to use `ormr` 
+to run an example Python script, 
+where Python is installed to a custom location.
+
+Here is the example Python script we want to run:
 
 ```{r}
-testthat::expect_false(
-  is_miniconda_installed(ormr_folder_name = ormr_folder_name)
+python_script_path <- system.file("extdata", "scipy_example.py", package = "ormr")
+readLines(python_script_path)
+```
+
+As a spoiler, it is demonstrated here that the script cannot be run yet:
+
+```{r}
+testthat::expect_error(
+  ormr::run_python_script(
+    ormr_folder_name = ormr_folder_name,
+    python_script_path = python_script_path
+  ),
+  "failed to discover Python binary associated with path"
 )
 ```
 
-Time to install Conda (or any other environment):
+# Overview
+
+These are the steps to achieve the goal:
+
+ 1. Create a Conda environment
+ 2. Install Python packages within that Conda environment
+ 3. Run a Python script with that Conda environment and packages
+
+## 1. Create a Conda environment
+
+Initially, the Conda environment does not exist:
 
 ```{r}
-install_miniconda(ormr_folder_name = ormr_folder_name)
+testthat::expect_false(
+  ormr::does_conda_env_exists(ormr_folder_name = ormr_folder_name)
+)
+```
+
+Create the Conda environment:
+
+```{r}
+ormr::create_conda_env(ormr_folder_name = ormr_folder_name)
+```
+
+Indeed, now the Conda environment exists:
+
+```{r}
 testthat::expect_true(
-  is_miniconda_installed(
-    ormr_folder_name = ormr_folder_name
+  ormr::does_conda_env_exists(ormr_folder_name = ormr_folder_name)
+)
+```
+
+
+## 2. Install Python packages within that Conda environment
+
+Currently, these packages are installed:
+
+```{r}
+installed_python_packages <- ormr::get_installed_python_packages(ormr_folder_name = ormr_folder_name)
+knitr::kable(installed_python_packages)
+```
+
+We are going to install `scipy`, which is a small package:
+
+```{r}
+package_name <- "scipy"
+```
+
+We can verify that it is not installed yet:
+
+```{r}
+testthat::expect_false(
+  ormr::is_python_package_installed(
+    ormr_folder_name = ormr_folder_name,
+    package_name = package_name
   )
 )
 ```
 
-Get a list of the installed Python packages
-(or more likely: a tibble):
+Also, running an Python script that requires `scipy` fails now:
 
 ```{r}
-installed_python_packages <- list_python_packages(
-  ormr_folder_name = ormr_folder_name
+testthat::expect_error(
+  ormr::run_python_script(
+    ormr_folder_name = ormr_folder_name,
+    python_script_path = python_script_path
+  ),
+  "ModuleNotFoundError: No module named 'scipy'"
 )
-knitr::kable(installed_python_packages)
 ```
 
-Tensorflow (or any other absent package) will not be in that list yet:
+Here, we install the package:
 
 ```{r}
-package_name <- "tensorflow"
-testthat::expect_false(package_name %in% installed_python_packages$package) 
-```
-
-
-Install it:
-
-THIS IS WHERE NO CODE IS BEING RUN
-
-```
-install_python_packages(
+ormr::install_python_packages(
   ormr_folder_name = ormr_folder_name,
   package_names = package_name
 )
 ```
 
-Now the Python package should be installed:
+Now the Python package is installed:
 
-```
-installed_python_packages <- list_python_packages(
-  ormr_folder_name = ormr_folder_name
+```{r}
+testthat::expect_true(
+  ormr::is_python_package_installed(
+    ormr_folder_name = ormr_folder_name,
+    package_name = package_name
+  )
 )
-testthat::expect_true(package_name %in% installed_python_packages$package) 
 ```
+
+## 3. Run a Python script with that Conda environment and packages
 
 Great, with our environment and packages in place,
-we run a Python script with those packages with command-line arguments
+we run a Python script with those packages:
 
-```
-python_script_path <- system.file("extdata", "run_gcae.py", package = "ormr")
-output <- run_python_script(
-  ormr_folder_name = ormr_folder_name,
-  python_script_path = python_script_path,
-  args = "--help"
+```{r}
+testthat::expect_silent(
+  ormr::run_python_script(
+    ormr_folder_name = ormr_folder_name,
+    python_script_path = python_script_path
+  )
 )
-testthat::expect_true(length(output) > 0)
+```
+
+No error, so we can conclude it works!
+
+# Cleaning up
+
+The clean up, we throw away the `ormr` folder in which the magic happened.
+
+```{r}
+unlink(ormr_folder_name, recursive = TRUE)
 ```

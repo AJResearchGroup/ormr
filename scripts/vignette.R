@@ -23,8 +23,11 @@ if (1 + 1 == 2) {
 }
 testthat::expect_true(file.exists(python_path))
 
-reticulate::use_condaenv(condaenv = ormr_folder_name)
-reticulate::use_python(python = python_path, required = TRUE)
+# ormr should not need to activate these
+if (1 == 2) {
+  reticulate::use_condaenv(condaenv = ormr_folder_name)
+  reticulate::use_python(python = python_path, required = TRUE)
+}
 
 if (1 == 2) {
   # Some peeking
@@ -38,18 +41,22 @@ if (1 == 2) {
   # Sys.getenv("RETICULATE_PYTHON")
 }
 
-# Lazy loading: Python is not initialized
-testthat::expect_true(is.null(reticulate::py_exe()))
-# Load Python
-reticulate::py_config()
-testthat::expect_false(is.null(reticulate::py_exe()))
-# Python is correct
-testthat::expect_true(
-  stringr::str_detect(
-    string = reticulate::py_exe(),
-    pattern = ormr_folder_name
+# We don't care about reticulate lazy loading
+if (1 == 2) {
+  # Lazy loading: Python is not initialized
+  testthat::expect_true(is.null(reticulate::py_exe()))
+  # Load Python
+  reticulate::py_config()
+  testthat::expect_false(is.null(reticulate::py_exe()))
+  # Python is correct
+  testthat::expect_true(
+    stringr::str_detect(
+      string = reticulate::py_exe(),
+      pattern = ormr_folder_name
+    )
   )
-)
+
+}
 
 
 # Our conda env is in the list
