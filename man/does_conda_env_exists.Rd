@@ -2,7 +2,7 @@
 % Please edit documentation in R/does_conda_env_exists.R
 \name{does_conda_env_exists}
 \alias{does_conda_env_exists}
-\title{Determine if conda is installed}
+\title{Determine if a Conda environment exists}
 \usage{
 does_conda_env_exists(ormr_folder_name, verbose = FALSE)
 }
@@ -15,13 +15,13 @@ Set to \link{TRUE} for more output.
 Use \link[plinkr]{check_verbose} to detect if this argument is valid.}
 }
 \value{
-TRUE if Miniconda is installed
+TRUE if a Conda environment exists
 }
 \description{
-Determine if conda is installed
+Determine if a Conda environment exists
 }
 \examples{
-is_miniconda_installed(ormr_folder_name = tempfile())
+does_conda_env_exists(ormr_folder_name = tempfile())
 }
 \author{
 Richèl J.C. Bilderbeek

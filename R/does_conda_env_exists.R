@@ -1,8 +1,8 @@
-#' Determine if conda is installed
+#' Determine if a Conda environment exists
 #' @inheritParams default_params_doc
-#' @return TRUE if Miniconda is installed
+#' @return TRUE if a Conda environment exists
 #' @examples
-#' is_miniconda_installed(ormr_folder_name = tempfile())
+#' does_conda_env_exists(ormr_folder_name = tempfile())
 #' @author Richèl J.C. Bilderbeek
 #' @export
 does_conda_env_exists <- function(
