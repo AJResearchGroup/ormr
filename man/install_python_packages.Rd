@@ -2,7 +2,7 @@
 % Please edit documentation in R/install_python_packages.R
 \name{install_python_packages}
 \alias{install_python_packages}
-\title{Install the GCAE requirements}
+\title{Install Python packages}
 \usage{
 install_python_packages(ormr_folder_name, package_names, verbose = FALSE)
 }
@@ -18,10 +18,7 @@ Use \link[plinkr]{check_verbose} to detect if this argument is valid.}
 nothing
 }
 \description{
-Install the GCAE requirements
-}
-\examples{
-install_python_packages()
+Install Python packages
 }
 \author{
 Richèl J.C. Bilderbeek

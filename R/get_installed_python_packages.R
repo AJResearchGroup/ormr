@@ -1,0 +1,77 @@
+#' Get the installed  Python packages and their versions
+#' @inheritParams default_params_doc
+#' @return a \link[tibble]{tibble} with two rows:
+#'  * `package`: the package name
+#'  * `version`: the package version
+#'  * `requirement`: the packages requirements
+#'  * `channel`: the package's channel
+#' @author Richèl J.C. Bilderbeek
+#' @export
+get_installed_python_packages <- function(
+  ormr_folder_name,
+  verbose = FALSE
+) {
+  return(
+    tibble::tibble(
+      reticulate:::conda_list_packages(envname = ormr_folder_name)
+    )
+  )
+  if (1 == 2) {
+
+    ormr::check_miniconda_is_installed(ormr_folder_name = ormr_folder_name)
+    python_binary_path <- character(0)
+    tryCatch(
+      python_binary_path <- ormr::get_python_binary_path(
+        ormr_folder_name = ormr_folder_name
+      ),
+      error = function(e) {
+        stop(
+          "'python_binary_path' not found at ", python_binary_path, "\n",
+          "Tip: run 'ormr::install_miniconda()' \n",
+          "Full error message: ", e$message
+        )
+      }
+    )
+    if (verbose) {
+      message("python_binary_path: ", python_binary_path)
+    }
+    testthat::expect_true(file.exists(python_binary_path))
+    # Cannot check if pip is installed,
+    # as that is done by calling this function,
+    # and see if 'pip' is in the list of installed Python packages.
+    # Hence, uncommenting the line below will result in infinite recursion:
+    # ormr::check_pip_is_installed()                                             # nolint this is indeed commented code :-)
+    text <- character(0)
+
+    suppressWarnings(
+      text <- system2(
+        command = normalizePath(python_binary_path),
+        args = c("-m", "pip", "list"),
+        stdout = TRUE,
+        stderr = TRUE
+      )
+    )
+    text_matrix <- stringr::str_split(text, pattern = " +", simplify = TRUE)
+    t_packages <- tibble::as_tibble(
+      text_matrix[c(-1, -2), ],
+      .name_repair = "minimal"
+    )
+    names(t_packages) <- tolower(text_matrix[1, ])
+    if (verbose) {
+      message("Packages found: \n", paste0(text, collapse = "\n"))
+    }
+
+    has_pip <- sum(t_packages$package == "pip") == 1
+    if (!has_pip) {
+      stop(
+        "pip is not installed. \n",
+        "'gcae_options$gcae_folder': ", gcae_options$gcae_folder, " \n",
+        "'gcae_options$gcae_version': ", gcae_options$gcae_version, " \n",
+        "Full error message: ", text, " \n",
+        " \n",
+        "Tip: run 'ormr::install_pip()'"
+      )
+    }
+    t_packages
+  }
+}

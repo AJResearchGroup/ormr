@@ -353,14 +353,17 @@
 get_python_binary_path <- function(
   ormr_folder_name
 ) {
-  miniconda_path <- get_miniconda_path(ormr_folder_name = ormr_folder_name)
-  python_binary_path <- file.path(
-    miniconda_path,
-    "envs/r-reticulate/bin/python"
-  )
+  python_binary_path <- reticulate:::python_binary_path(dir = ormr_folder_name)
   if (1 == 2) {
-    python_binary_path <- reticulate:::python_binary_path(
-      dir = miniconda_path
+    python_binary_path <- reticulate::conda_list()[
+      basename(ormr_folder_name) == reticulate::conda_list()$name,
+    ]$python
+  }
+  if (1 == 2) {
+    miniconda_path <- get_miniconda_path(ormr_folder_name = ormr_folder_name)
+    python_binary_path <- file.path(
+      miniconda_path,
+      "envs/r-reticulate/bin/python"
     )
   }
   python_binary_path
