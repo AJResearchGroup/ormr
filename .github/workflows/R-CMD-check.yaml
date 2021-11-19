@@ -49,7 +49,3 @@ jobs:
         run: lintr::lint_package()
         shell: Rscript {0}
 
-      - name: Report
-        run: ormr::ormr_report()
-        shell: Rscript {0}
-
