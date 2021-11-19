@@ -33,6 +33,8 @@ jobs:
           install.packages(c("remotes", "rcmdcheck"))
           remotes::install_deps(dependencies = TRUE)
           remotes::install_github("richelbilderbeek/plinkr")
+          remotes::install_cran("covr")
+          remotes::install_cran("lintr")
         shell: Rscript {0}
 
       - name: Check
