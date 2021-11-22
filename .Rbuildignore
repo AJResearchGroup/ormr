@@ -3,4 +3,5 @@
 ^\.here$
 ^\.github$
 ^LICENSE$
+^NEWS\.md$
 ^scripts$
