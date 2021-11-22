@@ -1,5 +1,10 @@
 test_that("use, nothing installed", {
-  ormr_report(ormr_folder_name = tempfile())
+  suppressMessages(
+    expect_message(
+      ormr_report(ormr_folder_name = tempfile()),
+      "ormr_folder_name"
+    )
+  )
 })
 
 test_that("minimal use", {
