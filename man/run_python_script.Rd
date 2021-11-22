@@ -4,7 +4,7 @@
 \alias{run_python_script}
 \title{Run a Python script}
 \usage{
-run_python_script(ormr_folder_name, python_script_path)
+run_python_script(ormr_folder_name, python_script_path, args = c())
 }
 \arguments{
 \item{ormr_folder_name}{name of the folder where \code{ormr}
@@ -13,7 +13,7 @@ installs all Python environments and packages}
 \item{python_script_path}{path to a Python script}
 }
 \value{
-Nothing
+The output of the Python script
 }
 \description{
 Run a Python script
