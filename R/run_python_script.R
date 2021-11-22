@@ -13,9 +13,19 @@ run_python_script <- function(
     ormr_folder_name = ormr_folder_name
   )
   reticulate::use_python(python = python_path, required = TRUE)
-  reticulate::py_capture_output(
-    reticulate::py_run_file(
-      file = python_script_path
+
+  if (1 + 1 == 2) {
+    output <- reticulate::py_capture_output(
+      reticulate::py_run_file(
+        file = python_script_path
+      )
     )
-  )
+  } else {
+    output <- reticulate::py_capture_output(
+      reticulate::source_python(
+        file = python_script_path
+      )
+    )
+  }
+  output
 }
