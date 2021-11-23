@@ -2,9 +2,8 @@ test_that("install scipy", {
   expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
   if (!plinkr::is_on_ci()) return()
 
-  ormr_folder_name <- tempfile()
   package_name <- "scipy"
-  create_conda_env(ormr_folder_name = ormr_folder_name)
+  ormr_folder_name <- create_default_conda_env()
 
   expect_false(
     is_python_package_installed(
@@ -24,17 +23,15 @@ test_that("install scipy", {
       package_name = package_name
     )
   )
-  unlink(ormr_folder_name, recursive = TRUE)
 })
 
 test_that("use", {
   expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
   if (!plinkr::is_on_ci()) return()
 
-  ormr_folder_name <- tempfile()
   package_name <- "setuptools==47.1.1"
   # package_name <- "setuptools"
-  create_conda_env(ormr_folder_name = ormr_folder_name)
+  ormr_folder_name <- create_default_conda_env()
 
   expect_false(
     is_python_package_installed(
@@ -55,6 +52,5 @@ test_that("use", {
       package_name = package_name
     )
   )
-  unlink(ormr_folder_name, recursive = TRUE)
 })
 

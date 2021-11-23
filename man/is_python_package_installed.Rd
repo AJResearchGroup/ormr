@@ -20,8 +20,7 @@ Determine if a Python package is installed
 }
 \examples{
 if (!plinkr::is_on_ci()) {
-  ormr_folder_name <- tempfile()
-  create_conda_env(ormr_folder_name = ormr_folder_name)
+  ormr_folder_name <- create_default_conda_env()
 
   # setuptools is installed with the Conda environment
   is_python_package_installed(

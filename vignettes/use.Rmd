@@ -28,9 +28,13 @@ which is the folder where `ormr` installs the Python environment and packages
 needed:
 
 ```{r}
-ormr_folder_name <- tempfile(pattern = "ormr_")
+ormr_folder_name <- get_default_ormr_folder_name()
 ormr_folder_name
 ```
+
+Note we use the default `ormr_folder_name`, as this package
+needs to only use one Python version, in both this
+vignette and its tests.
 
 # Goal
 
@@ -45,17 +49,21 @@ python_script_path <- system.file("extdata", "scipy_example.py", package = "ormr
 readLines(python_script_path)
 ```
 
-As a spoiler, it is demonstrated here that the script cannot be run yet:
+As a spoiler, it is demonstrated here that the script *maybe*
+cannot be run yet:
 
 ```{r}
-testthat::expect_error(
-  ormr::run_python_script(
+try(
+  run_python_script(
     ormr_folder_name = ormr_folder_name,
     python_script_path = python_script_path
-  ),
-  "failed to discover Python binary associated with path"
+  ), 
+  silent = FALSE
 )
 ```
+
+When using the default `ormr` Conda environment, `scipy`
+may actually be installed.
 
 # Overview
 
@@ -67,18 +75,20 @@ These are the steps to achieve the goal:
 
 ## 1. Create a Conda environment
 
-Initially, the Conda environment does not exist:
+Initially, the Conda environment *may* not exist,
+unless the default Conda environment is used.
 
 ```{r}
-testthat::expect_false(
-  ormr::does_conda_env_exists(ormr_folder_name = ormr_folder_name)
-)
+ormr::does_conda_env_exists(ormr_folder_name = ormr_folder_name)
 ```
 
-Create the Conda environment:
+Create the Conda environment (which is harmless if it already
+exists):
 
 ```{r}
-ormr::create_conda_env(ormr_folder_name = ormr_folder_name)
+if (!ormr::does_conda_env_exists(ormr_folder_name = ormr_folder_name)) {
+  ormr::create_conda_env(ormr_folder_name = ormr_folder_name)  
+}
 ```
 
 Indeed, now the Conda environment exists:
@@ -105,28 +115,33 @@ We are going to install `scipy`, which is a small package:
 package_name <- "scipy"
 ```
 
-We can verify that it is not installed yet:
+We can verify that it *may* not be installed yet:
 
 ```{r}
-testthat::expect_false(
-  ormr::is_python_package_installed(
-    ormr_folder_name = ormr_folder_name,
-    package_name = package_name
-  )
+is_python_package_installed(
+  ormr_folder_name = ormr_folder_name,
+  package_name = package_name
 )
 ```
 
-Also, running an Python script that requires `scipy` fails now:
+The package *may* be installed when using the default
+`ormr` Conda environment.
+
+Also, running an Python script that requires `scipy` *may* fail now:
 
 ```{r}
-testthat::expect_error(
-  ormr::run_python_script(
+try(
+  run_python_script(
     ormr_folder_name = ormr_folder_name,
     python_script_path = python_script_path
   ),
-  "ModuleNotFoundError: No module named 'scipy'"
+  silent = FALSE
 )
 ```
+
+The script *may* pass when using the default
+`ormr` Conda environment and the needed Python packages
+are already installed.
 
 Here, we install the package:
 
@@ -169,5 +184,7 @@ No error, so we can conclude it works!
 The clean up, we throw away the `ormr` folder in which the magic happened.
 
 ```{r}
-unlink(ormr_folder_name, recursive = TRUE)
+if (ormr_folder_name != get_default_ormr_folder_name()) {
+  unlink(ormr_folder_name, recursive = TRUE)  
+}
 ```

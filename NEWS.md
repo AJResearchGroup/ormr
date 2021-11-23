@@ -8,7 +8,7 @@ Newest versions at top.
 
  * Add `create_default_conda_env` and `get_default_ormr_folder_name`
    to test with a default Conda environment, to prevent many new Conda
-   installs 
+   installs
 
 ### MINOR IMPROVEMENTS
 
