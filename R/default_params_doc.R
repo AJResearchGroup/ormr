@@ -5,7 +5,7 @@
 #' @param ormr_folder_name name of the folder where `ormr`
 #' installs all Python environments and packages
 #' @param package_name the Python package's name
-#' @param package_name a Python package's version, e.g.
+#' @param package_version a Python package's version, e.g.
 #' `==3.1`, or `<=2.7.1` or `>=42`
 #' @param python_script_path path to a Python script
 #' @param verbose the verbosity of a function.

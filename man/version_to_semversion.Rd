@@ -6,6 +6,10 @@
 \usage{
 version_to_semversion(package_version)
 }
+\arguments{
+\item{package_version}{a Python package's version, e.g.
+\verb{==3.1}, or \verb{<=2.7.1} or \verb{>=42}}
+}
 \value{
 a version number that is compatible with \link[semver]{semver}
 }
