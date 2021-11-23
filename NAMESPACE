@@ -2,6 +2,7 @@
 
 export(check_conda_env_exists)
 export(create_conda_env)
+export(create_default_conda_env)
 export(does_conda_env_exists)
 export(get_default_ormr_folder_name)
 export(get_installed_python_packages)
@@ -10,3 +11,4 @@ export(install_python_packages)
 export(is_python_package_installed)
 export(ormr_report)
 export(run_python_script)
+export(run_python_script_with_args)

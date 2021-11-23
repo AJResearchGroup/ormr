@@ -5,9 +5,11 @@
 \title{This function does nothing. It is intended to inherit is parameters'
 documentation.}
 \usage{
-default_params_doc(ormr_folder_name, python_script_path, verbose)
+default_params_doc(args, ormr_folder_name, python_script_path, verbose)
 }
 \arguments{
+\item{args}{arguments to a script, for example \code{--help}}
+
 \item{ormr_folder_name}{name of the folder where \code{ormr}
 installs all Python environments and packages}
 
