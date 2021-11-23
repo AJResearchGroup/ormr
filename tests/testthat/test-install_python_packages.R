@@ -30,7 +30,7 @@ test_that("use", {
   if (!plinkr::is_on_ci()) return()
 
   package_name <- "setuptools==47.1.1"
-  # package_name <- "setuptools"
+  # package_name <- "setuptools" # nolint leave it for now
   ormr_folder_name <- create_default_conda_env()
 
   expect_false(
@@ -53,4 +53,3 @@ test_that("use", {
     )
   )
 })
-

@@ -36,7 +36,6 @@ if (!plinkr::is_on_ci()) {
   )
 
 }
-is_python_package_installed()
 }
 \author{
 Richèl J.C. Bilderbeek

@@ -1,7 +1,4 @@
 test_that("produces output", {
-  # expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
-  # if (!plinkr::is_on_ci()) return()
-
   ormr_folder_name <- create_default_conda_env()
 
   python_script_path <- system.file(
@@ -20,9 +17,6 @@ test_that("produces output", {
 })
 
 test_that("calling scrip without args produces output", {
-  # expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
-  # if (!plinkr::is_on_ci()) return()
-
   ormr_folder_name <- create_default_conda_env()
 
   python_script_path <- system.file(
@@ -98,7 +92,10 @@ test_that(
 
     # Create a Hello World Python script
     python_script_path <- tempfile(fileext = ".py")
-    writeLines(text = "print('Number of arguments:', len(sys.argv))", con = python_script_path)
+    writeLines(
+      text = "print('Number of arguments:', len(sys.argv))",
+      con = python_script_path
+    )
 
     # Run the script without arguments goes fine
     output <- reticulate::py_capture_output(

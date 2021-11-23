@@ -20,7 +20,6 @@
 #'   )
 #'
 #' }
-#' is_python_package_installed()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 is_python_package_installed <- function(

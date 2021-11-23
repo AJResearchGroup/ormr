@@ -1,4 +1,5 @@
 #' Create and/or get the default `ormr` Conda enviroment
+#' @inheritParams default_params_doc
 #' @return the default `ormr` folder name
 #' @examples
 #' create_default_conda_env()

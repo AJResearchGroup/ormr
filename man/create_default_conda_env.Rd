@@ -6,6 +6,11 @@
 \usage{
 create_default_conda_env(verbose = FALSE)
 }
+\arguments{
+\item{verbose}{the verbosity of a function.
+Set to \link{TRUE} for more output.
+Use \link[plinkr]{check_verbose} to detect if this argument is valid.}
+}
 \value{
 the default \code{ormr} folder name
 }
