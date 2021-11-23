@@ -6,7 +6,7 @@ Newest versions at top.
 
 ### NEW FEATURES
 
- * None
+ * Can install Python packages with a specific version
 
 ### MINOR IMPROVEMENTS
 
