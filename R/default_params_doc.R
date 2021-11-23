@@ -4,7 +4,8 @@
 #' @param args arguments to a script, for example `--help`
 #' @param ormr_folder_name name of the folder where `ormr`
 #' installs all Python environments and packages
-#' @param package_name the Python package's name
+#' @param package_name the name of one Python package
+#' @param package_names the names of one or more Python packages
 #' @param package_version a Python package's version, e.g.
 #' `==3.1`, or `<=2.7.1` or `>=42`
 #' @param python_script_path path to a Python script
@@ -19,6 +20,7 @@ default_params_doc <- function(
   args,
   ormr_folder_name,
   package_name,
+  package_names,
   package_version,
   python_script_path,
   verbose

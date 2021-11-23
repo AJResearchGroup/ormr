@@ -9,6 +9,7 @@ default_params_doc(
   args,
   ormr_folder_name,
   package_name,
+  package_names,
   package_version,
   python_script_path,
   verbose
@@ -20,7 +21,9 @@ default_params_doc(
 \item{ormr_folder_name}{name of the folder where \code{ormr}
 installs all Python environments and packages}
 
-\item{package_name}{the Python package's name}
+\item{package_name}{the name of one Python package}
+
+\item{package_names}{the names of one or more Python packages}
 
 \item{package_version}{a Python package's version, e.g.
 \verb{==3.1}, or \verb{<=2.7.1} or \verb{>=42}}

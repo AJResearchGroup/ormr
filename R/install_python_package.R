@@ -1,16 +1,16 @@
-#' Install one or more Python packages
+#' Install one Python package
 #' @inheritParams default_params_doc
 #' @return nothing
 #' @author Richèl J.C. Bilderbeek
 #' @export
-install_python_packages <- function(
+install_python_package <- function(
   ormr_folder_name,
-  package_names,
+  package_name,
   verbose = FALSE
 ) {
   ormr::check_conda_env_exists(ormr_folder_name = ormr_folder_name)
   reticulate::conda_install(
-    packages = package_names,
+    packages = package_name,
     envname = ormr_folder_name
   )
   invisible(ormr_folder_name)
