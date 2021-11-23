@@ -24,6 +24,7 @@ test_that("install scipy", {
 })
 
 test_that("detect package names with version range", {
+  ormr_folder_name <- create_default_conda_env()
   expect_error(
     install_python_package(
       ormr_folder_name = ormr_folder_name,
