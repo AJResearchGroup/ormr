@@ -50,7 +50,9 @@ is_python_package_with_version_installed <- function( # nolint indeed a long fun
   desired_version_operator <- desired_version_str[1, 2]
   desired_version_no_operator <- desired_version_str[1, 3]
 
-  installed_semver <- semver::parse_version(installed_version)
+  installed_semver <- semver::parse_version(
+    version_to_semversion(installed_version)
+  )
   desired_semver <- semver::parse_version(
     version_to_semversion(
       desired_version_no_operator
