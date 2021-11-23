@@ -9,6 +9,7 @@ Newest versions at top.
  * Add `create_default_conda_env` and `get_default_ormr_folder_name`
    to test with a default Conda environment, to prevent many new Conda
    installs
+ * Add `run_python_script_with_args` to run a Python script with arguments
 
 ### MINOR IMPROVEMENTS
 
