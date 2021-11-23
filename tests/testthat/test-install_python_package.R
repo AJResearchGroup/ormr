@@ -30,6 +30,6 @@ test_that("detect package names with version range", {
       ormr_folder_name = ormr_folder_name,
       package_name = "setuptools==47.1.1"
     ),
-    "Tip use 'install_python_package_with_version'"
+    "'package_name' is not in the format of a Python package name"
   )
 })

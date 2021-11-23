@@ -9,6 +9,7 @@ install_python_package <- function(
   verbose = FALSE
 ) {
   ormr::check_conda_env_exists(ormr_folder_name = ormr_folder_name)
+  ormr::check_python_package_name(package_name = package_name)
   reticulate::conda_install(
     packages = package_name,
     envname = ormr_folder_name
