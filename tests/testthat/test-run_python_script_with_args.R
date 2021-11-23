@@ -11,16 +11,16 @@ test_that("calling scrip without args produces output", {
     python_script_path = python_script_path
   )
   expect_true(
-    stringr::str_detect(
-      output,
-      "Number of arguments: 1\nArguments:"
-    )
+    sum(
+      stringr::str_detect(
+        output,
+        "Number of arguments: 1"
+      )
+    ) > 0
   )
 })
 
 test_that("calling scrip with args produces output", {
-  skip("Cannot call Python script with args yet")
-
   ormr_folder_name <- create_default_conda_env()
 
   python_script_path <- system.file(
@@ -34,9 +34,11 @@ test_that("calling scrip with args produces output", {
     args = c("Hello", "world")
   )
   expect_true(
-    stringr::str_detect(
-      output,
-      "Hello"
-    )
+    sum(
+      stringr::str_detect(
+        output,
+        "Number of arguments: 3"
+      )
+    ) > 0
   )
 })

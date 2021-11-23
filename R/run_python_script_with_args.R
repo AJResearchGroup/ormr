@@ -13,18 +13,16 @@ run_python_script_with_args <- function(
     ormr_folder_name = ormr_folder_name
   )
   reticulate::use_python(python = python_path, required = TRUE)
-  if (1 + 1 == 2) {
-    output <- reticulate::py_capture_output(
-      reticulate::py_run_file(
-        file = python_script_path
-      )
-    )
-  } else {
-    output <- reticulate::py_capture_output(
-      reticulate::source_python(
-        file = python_script_path
-      )
-    )
-  }
+  run_args <- c(
+    normalizePath(python_path),
+    python_script_path,
+    args
+  )
+  output <- system2(
+    command = run_args[1],
+    args = run_args[-1],
+    stdout = TRUE,
+    stderr = TRUE
+  )
   output
 }
