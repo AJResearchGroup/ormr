@@ -2,7 +2,7 @@
 
 Newest versions at top.
 
-## `ormr` v0.4 (unreleased)
+## `ormr` v0.4.0 (2021-11-23)
 
 ### NEW FEATURES
 
