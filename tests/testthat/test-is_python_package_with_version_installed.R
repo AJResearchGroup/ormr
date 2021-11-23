@@ -72,4 +72,14 @@ test_that("use", {
       package_version = "<=1234567"
     )
   )
+
+  # Without an operator
+  expect_true(
+    is_python_package_with_version_installed(
+      ormr_folder_name = ormr_folder_name,
+      package_name = "pip",
+      package_version = installed_pip_version
+    )
+  )
+
 })

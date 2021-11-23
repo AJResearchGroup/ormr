@@ -2,23 +2,31 @@
 #' @inheritParams default_params_doc
 #' @return nothing
 #' @examples
-#' if (!plinkr::is_on_ci()) {
-#'   ormr_folder_name <- create_default_conda_env()
+#' ormr_folder_name <- create_default_conda_env()
 #'
-#'   # setuptools is installed with the Conda environment
-#'   is_python_package_installed(
-#'     ormr_folder_name = ormr_folder_name,
-#'     package_name = "setuptools"
-#'   )
+#' # Check for an exact version
+#' is_python_package_with_version_installed(
+#'   ormr_folder_name = ormr_folder_name,
+#'   package_name = "pip",
+#'   package_version = "21.3.1"
+#' )
+#' is_python_package_with_version_installed(
+#'   ormr_folder_name = ormr_folder_name,
+#'   package_name = "pip",
+#'   package_version = "==21.3.1"
+#' )
 #'
-#'   # scipy is not installed with the Conda environment
-#'   # Use 'ormr::install_python_packages' to install scipy
-#'   is_python_package_installed(
-#'     ormr_folder_name = ormr_folder_name,
-#'     package_name = "scipy"
-#'   )
-#'
-#' }
+#' # Check for a range
+#' is_python_package_with_version_installed(
+#'   ormr_folder_name = ormr_folder_name,
+#'   package_name = "pip",
+#'   package_version = "<=21.3.1"
+#' )
+#' is_python_package_with_version_installed(
+#'   ormr_folder_name = ormr_folder_name,
+#'   package_name = "pip",
+#'   package_version = ">=21.3.1"
+#' )
 #' @author Richèl J.C. Bilderbeek
 #' @export
 is_python_package_with_version_installed <- function( # nolint indeed a long function name
@@ -37,7 +45,7 @@ is_python_package_with_version_installed <- function( # nolint indeed a long fun
 
   desired_version_str <- stringr::str_match(
     string = package_version,
-    pattern = "([=<>]=)(.*)"
+    pattern = "([=<>]=)?(.*)"
   )
   desired_version_operator <- desired_version_str[1, 2]
   desired_version_no_operator <- desired_version_str[1, 3]
@@ -49,7 +57,7 @@ is_python_package_with_version_installed <- function( # nolint indeed a long fun
     )
   )
 
-  if (desired_version_operator == "==") {
+  if (is.na(desired_version_operator) || desired_version_operator == "==") {
     return(installed_semver == desired_semver)
   }
   if (desired_version_operator == "<=") {
