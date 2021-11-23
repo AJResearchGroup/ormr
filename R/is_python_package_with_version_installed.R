@@ -21,7 +21,7 @@
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
-is_python_package_with_version_installed <- function(
+is_python_package_with_version_installed <- function( # nolint indeed a long function name
   ormr_folder_name,
   package_name,
   package_version
