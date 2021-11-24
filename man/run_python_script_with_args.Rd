@@ -4,7 +4,12 @@
 \alias{run_python_script_with_args}
 \title{Run a Python script with arguments}
 \usage{
-run_python_script_with_args(ormr_folder_name, python_script_path, args = c())
+run_python_script_with_args(
+  ormr_folder_name,
+  python_script_path,
+  args = c(),
+  verbose = FALSE
+)
 }
 \arguments{
 \item{ormr_folder_name}{name of the folder where \code{ormr}
@@ -13,6 +18,10 @@ installs all Python environments and packages}
 \item{python_script_path}{path to a Python script}
 
 \item{args}{arguments to a script, for example \code{--help}}
+
+\item{verbose}{the verbosity of a function.
+Set to \link{TRUE} for more output.
+Use \link[plinkr]{check_verbose} to detect if this argument is valid.}
 }
 \value{
 The output of the Python script

@@ -20,6 +20,24 @@ test_that("calling scrip without args produces output", {
   )
 })
 
+test_that("verbose produces output", {
+  ormr_folder_name <- create_default_conda_env()
+
+  python_script_path <- system.file(
+    "extdata", "show_args.py", package = "ormr"
+  )
+  expect_true(file.exists(python_script_path))
+
+  expect_message(
+    run_python_script_with_args(
+      ormr_folder_name = ormr_folder_name,
+      python_script_path = python_script_path,
+      verbose = TRUE
+    ),
+    "Tip: you should be able to copy-paste this :-)"
+  )
+})
+
 test_that("calling scrip with args produces output", {
   ormr_folder_name <- create_default_conda_env()
 
