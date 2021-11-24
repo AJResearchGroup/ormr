@@ -82,4 +82,13 @@ test_that("use", {
     )
   )
 
+
+  expect_error(
+    is_python_package_with_version_installed(
+      ormr_folder_name = ormr_folder_name,
+      package_name = "pip",
+      package_version = "><1234567"
+    ),
+    "Cannot convert 'package_version' to a valid 'semver' string"
+  )
 })

@@ -49,7 +49,6 @@ is_python_package_with_version_installed <- function( # nolint indeed a long fun
   )
   desired_version_operator <- desired_version_str[1, 2]
   desired_version_no_operator <- desired_version_str[1, 3]
-
   installed_semver <- semver::parse_version(
     version_to_semversion(installed_version)
   )
@@ -65,8 +64,6 @@ is_python_package_with_version_installed <- function( # nolint indeed a long fun
   if (desired_version_operator == "<=") {
     return(installed_semver <= desired_semver)
   }
-  if (desired_version_operator == ">=") {
-    return(installed_semver >= desired_semver)
-  }
-  stop("Unknown operator: '", desired_version_operator, "'")
+  testthat::expect_equal(desired_version_operator, ">=")
+  return(installed_semver >= desired_semver)
 }
