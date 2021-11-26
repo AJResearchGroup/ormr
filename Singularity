@@ -29,7 +29,7 @@ From: richelbilderbeek/default/plinkr:0.17.2.1
 exec R --vanilla --silent --no-echo "$@"
 
 %test
-    Rscript -e 'ormr::is_gcae_installed(gcae_options = ormr::create_gcae_options(gcae_folder = "/opt/ormr"), verbose = TRUE)'
+    Rscript -e 'ormr::is_python_package_installed(ormr_folder_name = "/opt/ormr", package_name = "scipy")'
 
 %help
 
