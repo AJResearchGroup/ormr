@@ -157,8 +157,5 @@ public domain image of a snake, using the following DuckDuckGo image seach:
 https://duckduckgo.com/?q=orm+.png&t=ffab&iar=images&iaf=license%3APublic%2Ctype%3Aclipart&iax=images&ia=images&iai=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2016%2F03%2F31%2F15%2F10%2Fcartoon-1293047_1280.png
 ```
 
-
-
-
-https://cdn.pixabay.com/photo/2016/03/31/15/10/cartoon-1293047_1280.png
+After that, the image was modified using KolourPaint and the R logo was added.
 
