@@ -31,13 +31,13 @@ For convenience, there is also a default `ormr_folder_name`.
 
 ## 1. Get the default `ormr_folder_name`
 
-```{r}
+```r
 ormr_folder_name <- get_default_ormr_folder_name()
 ```
 
 ## 2. Create the default Conda environment
 
-```{r}
+```r
 ormr_folder_name <- create_default_conda_env()
 ```
 
@@ -46,7 +46,7 @@ Note that `create_default_conda_env` conveniently returns the
 
 ## 3. Install a Python package
 
-```{r}
+```r
 ormr_folder_name <- create_default_conda_env()
 
 install_python_package(
@@ -57,7 +57,7 @@ install_python_package(
 
 ## 4. Run a Python script
 
-```{r}
+```r
 ormr_folder_name <- create_default_conda_env()
 python_script_path <- system.file(
   "extdata", "hello_world.py", package = "ormr"
@@ -71,7 +71,7 @@ run_python_script(
 
 ## 5. Run a Python script with command-line arguments
 
-```{r}
+```r
 ormr_folder_name <- create_default_conda_env()
 python_script_path <- system.file(
   "extdata", "show_args.py", package = "ormr"
