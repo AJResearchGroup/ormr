@@ -24,8 +24,9 @@ From: richelbilderbeek/default/plinkr:0.17.2.1
     ls /opt/ormr
 
 # 'ormr' needs this?
-# %environment
-#     export PATH=/miniconda/bin:$PATH
+# export PATH=/miniconda/bin:$PATH
+%environment
+    export PATH=/opt/ormr:$PATH
 
 %runscript
 exec R --vanilla --silent --no-echo "$@"
