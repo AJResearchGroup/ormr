@@ -22,6 +22,19 @@ nothing
 \description{
 Install one or more Python packages
 }
+\examples{
+ormr_folder_name <- create_default_conda_env()
+
+# Note that these packages may already be installed
+install_python_packages(
+  ormr_folder_name = ormr_folder_name,
+  package_names = c("scipy", "readline")
+)
+}
+\seealso{
+use \link{install_python_package} to install one
+Python package
+}
 \author{
 Richèl J.C. Bilderbeek
 }

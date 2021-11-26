@@ -18,6 +18,20 @@ The output of the Python script
 \description{
 Run a Python script
 }
+\examples{
+ormr_folder_name <- create_default_conda_env()
+python_script_path <- system.file(
+  "extdata", "hello_world.py", package = "ormr"
+)
+run_python_script(
+  ormr_folder_name = ormr_folder_name,
+  python_script_path = python_script_path
+)
+}
+\seealso{
+use \link{run_python_script_with_args} to run a Python
+script with command-line arguments
+}
 \author{
 Richèl J.C. Bilderbeek
 }

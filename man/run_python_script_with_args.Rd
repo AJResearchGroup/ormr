@@ -2,7 +2,7 @@
 % Please edit documentation in R/run_python_script_with_args.R
 \name{run_python_script_with_args}
 \alias{run_python_script_with_args}
-\title{Run a Python script with arguments}
+\title{Run a Python script with command-line arguments}
 \usage{
 run_python_script_with_args(
   ormr_folder_name,
@@ -27,7 +27,23 @@ Use \link[plinkr]{check_verbose} to detect if this argument is valid.}
 The output of the Python script
 }
 \description{
-Run a Python script with arguments
+Run a Python script with command-line arguments
+}
+\examples{
+ormr_folder_name <- create_default_conda_env()
+
+python_script_path <- system.file(
+  "extdata", "show_args.py", package = "ormr"
+)
+run_python_script_with_args(
+  ormr_folder_name = ormr_folder_name,
+  python_script_path = python_script_path,
+  args = c("Hello", "world")
+)
+}
+\seealso{
+use \link{run_python_script} to run a Python
+script without command-line arguments
 }
 \author{
 Richèl J.C. Bilderbeek
