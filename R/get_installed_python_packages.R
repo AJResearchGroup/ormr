@@ -12,6 +12,14 @@ get_installed_python_packages <- function(
   verbose = FALSE
 ) {
   ormr::check_conda_env_exists(ormr_folder_name = ormr_folder_name)
+
+  # Activate Conda and Python
+  reticulate::use_condaenv(condaenv = ormr_folder_name)
+  python_path <- ormr::get_python_binary_path(
+    ormr_folder_name = ormr_folder_name
+  )
+  reticulate::use_python(python = python_path, required = TRUE)
+
   tibble::tibble(
     reticulate:::conda_list_packages(envname = ormr_folder_name) # nolint creates Issue to encourage reticulate to export this function, https://github.com/rstudio/reticulate/issues/1056
   )

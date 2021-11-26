@@ -37,8 +37,10 @@ exec R --vanilla --silent --no-echo "$@"
     ls /opt/ormr
     echo "Run 'ormr::ormr_report'"
     Rscript -e 'ormr::ormr_report(ormr_folder_name = "/opt/ormr")'
-    echo "Show that 'scipy' is installed, re-activate the Conda env"
-    Rscript -e 'ormr::create_conda_env(ormr_folder_name = "/opt/ormr"); ormr::is_python_package_installed(ormr_folder_name = "/opt/ormr", package_name = "scipy")'
+    echo "Show that the Conda env exists"
+    Rscript -e 'ormr::does_conda_env_exists(ormr_folder_name = "/opt/ormr")'
+    echo "Show that 'scipy' is installed"
+    Rscript -e 'ormr::is_python_package_installed(ormr_folder_name = "/opt/ormr", package_name = "scipy")'
 
 %help
 
