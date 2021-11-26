@@ -1,4 +1,5 @@
 test_that("minimal use", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
   reticulate::use_condaenv(
     condaenv = get_default_ormr_folder_name()
   )
