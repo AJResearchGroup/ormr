@@ -25,6 +25,9 @@ From: richelbilderbeek/default/plinkr:0.17.2.1
 
 # 'ormr' needs this?
 # export PATH=/miniconda/bin:$PATH
+#
+# RETICULATE_PYTHON usage is from 
+# https://stackoverflow.com/questions/50145643/unable-to-change-python-path-in-reticulate
 %environment
     export PATH=/opt/ormr:$PATH
     export RETICULATE_PYTHON=/opt/ormr/bin/python
