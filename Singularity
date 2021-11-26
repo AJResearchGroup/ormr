@@ -27,6 +27,7 @@ From: richelbilderbeek/default/plinkr:0.17.2.1
 # export PATH=/miniconda/bin:$PATH
 %environment
     export PATH=/opt/ormr:$PATH
+    export RETICULATE_PYTHON=/opt/ormr/bin/python
 
 %runscript
 exec R --vanilla --silent --no-echo "$@"
