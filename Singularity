@@ -23,23 +23,37 @@ From: richelbilderbeek/default/plinkr:0.17.2.1
     ls /opt
     ls /opt/ormr
 
-# 'ormr' needs this
-%environment
-    export PATH=/miniconda/bin:$PATH
+# 'ormr' needs this?
+# %environment
+#     export PATH=/miniconda/bin:$PATH
 
 %runscript
 exec R --vanilla --silent --no-echo "$@"
 
 %test
+    echo "**************"
     echo "Show me '/opt'"
+    echo "**************"
     ls /opt
+    echo "*******************"
     echo "Show me '/opt/ormr'"
+    echo "*******************"
     ls /opt/ormr
+    echo "***********"
+    echo "Show plinkr"
+    echo "***********"
+    Rscript -e 'plinkr::plinkr_report(plink_optionses = plinkr::create_plink_optionses(plink_folder = "/opt/plinkr"))'
+    echo "***********************"
     echo "Run 'ormr::ormr_report'"
+    echo "***********************"
     Rscript -e 'ormr::ormr_report(ormr_folder_name = "/opt/ormr")'
+    echo "******************************"
     echo "Show that the Conda env exists"
+    echo "******************************"
     Rscript -e 'ormr::does_conda_env_exists(ormr_folder_name = "/opt/ormr")'
+    echo "******************************"
     echo "Show that 'scipy' is installed"
+    echo "******************************"
     Rscript -e 'ormr::is_python_package_installed(ormr_folder_name = "/opt/ormr", package_name = "scipy")'
 
 %help
