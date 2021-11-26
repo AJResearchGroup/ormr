@@ -32,14 +32,14 @@ jobs:
         run: ./scripts/build_singularity_container.sh
 
       - name: Test container, must detect GCAE
-        run: singularity test gcaer.sif
+        run: singularity test ormr.sif
 
       - name: Show help of container
-        run: singularity run-help gcaer.sif
+        run: singularity run-help ormr.sif
 
       - name: Show script
         run: cat scripts/demo_container.R
 
       - name: Run container
-        run: cat scripts/demo_container.R | ./gcaer.sif
+        run: cat scripts/demo_container.R | ./ormr.sif
 
