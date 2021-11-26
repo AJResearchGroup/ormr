@@ -85,6 +85,27 @@ run_python_script_with_args(
 
 # FAQ
 
+## What is the goal of `ormr`?
+
+`ormr` allows a user to install Python packages,
+create a Conda environment and run Python scripts
+with only one point of contact.
+
+## In what context is `ormr` useful?
+
+`ormr` was written to write simpler 
+[Singularity](https://singularity.hpcng.org/) (a type of containerization
+software, similar to Docker) scripts.
+
+`reticulate` is great when using its default folders on a local computer.
+However, for a Singularity container, it is recommended to install
+libraries in a systems folder. In that setting, `reticulate` is
+harder to work with.
+
+`ormr` allows to install install Python packages,
+create a Conda environment and run Python scripts
+in any folder easily. Such as a system folder of a Singularity container.
+
 ## Why not just use `reticulate`?
 
 `ormr` heavily depends on `reticulate`, the latter being
@@ -98,6 +119,22 @@ and 100% code coverage.
 
 Beyond the domain of `ormr`, use `reticulate`.
 
+## There is a feature I miss
+
+See [CONTRIBUTING](CONTRIBUTING.md), at `Submitting use cases`
+
+## I want to collaborate
+
+See [CONTRIBUTING](CONTRIBUTING.md), at `Submitting code`
+
+## I think I have found a bug
+
+See [CONTRIBUTING](CONTRIBUTING.md), at `Submitting bugs` 
+
+## There's something else I want to say
+
+Sure, just add an Issue. Or send an email.
+
 ## How do I contribute?
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
@@ -108,3 +145,4 @@ This name is a pun on `reticulate`. `reticulate` is named after a
 type of snake. `ormr` is written in Sweden. In Swedish, `orm`, is a snake.
 Following the common tradtion of adding an `r` to the end of an R package 
 name (e.g `dplyr`, `tidyr`, etc) resulted in `ormr`.
+
