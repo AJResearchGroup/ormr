@@ -25,11 +25,11 @@ packages and run Python scripts.
 `ormr` uses one point of contact, `ormr_folder_name`.
 For convenience, there is also a default `ormr_folder_name`.
 
- * 1. Get the default `ormr_folder_name`
- * 2. Create the default Conda environment
- * 3. Install a Python package
- * 4. Run a Python script
- * 5. Run a Python script with command-line arguments
+  1. Get the default `ormr_folder_name`
+  2. Create the default Conda environment
+  3. Install a Python package
+  4. Run a Python script
+  5. Run a Python script with command-line arguments
 
 ## 1. Get the default `ormr_folder_name`
 
@@ -159,7 +159,7 @@ https://duckduckgo.com/?q=orm+.png&t=ffab&iar=images&iaf=license%3APublic%2Ctype
 
 After that, the image was modified using KolourPaint and the R logo was added.
 
-## Can I submit a better logo?
+## Singularity container
 
-Definitely can you submit a better CC-BY logo :-)
+ * [Find the latest 'ormr' Singularity container](https://cloud.sylabs.io/library/search;query=ormr)
 
