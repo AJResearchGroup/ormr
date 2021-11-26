@@ -29,5 +29,14 @@ ormr_report <- function(
   } else {
     message("Installed Python packages: N/A (need Conda environment to exist)")
   }
+
+  conda_envs <- reticulate::conda_list()
+  message(
+    "List of Conda environments: \n",
+    " \n",
+    paste0(knitr::kable(conda_envs), collapse = "\n")
+  )
+
+  message("General session info: \n")
   message(paste0(devtools::session_info(), collapse = "\n"))
 }

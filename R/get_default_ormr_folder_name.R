@@ -5,5 +5,5 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_default_ormr_folder_name <- function() {
-  rappdirs::user_cache_dir(appname = "ormr")
+  rappdirs::user_data_dir(appname = "ormr")
 }
