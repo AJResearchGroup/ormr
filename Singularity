@@ -31,10 +31,14 @@ From: richelbilderbeek/default/plinkr:0.17.2.1
 exec R --vanilla --silent --no-echo "$@"
 
 %test
+    echo "Show me '/opt'"
     ls /opt
+    echo "Show me '/opt/ormr'"
     ls /opt/ormr
+    echo "Run 'ormr::ormr_report'"
     Rscript -e 'ormr::ormr_report(ormr_folder_name = "/opt/ormr")'
-    Rscript -e 'ormr::is_python_package_installed(ormr_folder_name = "/opt/ormr", package_name = "scipy")'
+    echo "Show that 'scipy' is installed, re-activate the Conda env"
+    Rscript -e 'ormr::create_conda_env(ormr_folder_name = "/opt/ormr"); ormr::is_python_package_installed(ormr_folder_name = "/opt/ormr", package_name = "scipy")'
 
 %help
 
