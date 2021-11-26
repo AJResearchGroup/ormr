@@ -20,6 +20,8 @@ From: richelbilderbeek/default/plinkr:0.17.2.1
     Rscript -e 'ormr::create_conda_env(ormr_folder_name = "/opt/ormr")'
     Rscript -e 'ormr::install_python_package(ormr_folder_name = "/opt/ormr", package_name = "scipy")'
     Rscript -e 'ormr::ormr_report(ormr_folder_name = "/opt/ormr")'
+    ls /opt
+    ls /opt/ormr
 
 # 'ormr' needs this
 %environment
@@ -29,6 +31,8 @@ From: richelbilderbeek/default/plinkr:0.17.2.1
 exec R --vanilla --silent --no-echo "$@"
 
 %test
+    ls /opt
+    ls /opt/ormr
     Rscript -e 'ormr::ormr_report(ormr_folder_name = "/opt/ormr")'
     Rscript -e 'ormr::is_python_package_installed(ormr_folder_name = "/opt/ormr", package_name = "scipy")'
 
