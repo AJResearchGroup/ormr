@@ -5,9 +5,9 @@ Branch   |[![GitHub Actions logo](man/figures/GitHubActions.png)](https://github
 `master` |![R-CMD-check](https://github.com/richelbilderbeek/ormr/workflows/R-CMD-check/badge.svg?branch=master)   |[![codecov.io](https://codecov.io/github/richelbilderbeek/ormr/coverage.svg?branch=master)](https://codecov.io/github/richelbilderbeek/ormr/branch/master)
 `develop`|![R-CMD-check](https://github.com/richelbilderbeek/ormr/workflows/R-CMD-check/badge.svg?branch=develop)  |[![codecov.io](https://codecov.io/github/richelbilderbeek/ormr/coverage.svg?branch=develop)](https://codecov.io/github/richelbilderbeek/ormr/branch/develop)
 
-Work with Python installed at a custom location.
-
 ![`ormr` logo](man/figures/ormr_logo_50.png)
+
+Work with Python installed at a custom location.
 
 # Goal
 
