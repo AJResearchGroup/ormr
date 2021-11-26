@@ -17,6 +17,7 @@ From: richelbilderbeek/default/plinkr:0.17.2.1
     Rscript -e 'install.packages("semver")'
     Rscript -e 'install.packages("reticulate")'
     Rscript -e 'remotes::install_github("richelbilderbeek/ormr")'
+    Rscript -e 'ormr::create_conda_env(ormr_folder_name = "/opt/ormr")'
     Rscript -e 'ormr::install_python_package(ormr_folder_name = "/opt/ormr", package_name = "scipy")'
     Rscript -e 'ormr::ormr_report(ormr_folder_name = "/opt/ormr")'
 
