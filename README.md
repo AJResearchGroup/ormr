@@ -7,7 +7,7 @@ Branch   |[![GitHub Actions logo](man/figures/GitHubActions.png)](https://github
 
 Work with Python installed at a custom location.
 
-![`ormr` logo](man/figures/ormr_logo.png)
+![`ormr` logo](man/figures/ormr_logo_50.png)
 
 # Goal
 
