@@ -15,16 +15,25 @@ ormr_report <- function(
     message("Conda environment exists: no")
   }
   if (ormr::does_conda_env_exists(ormr_folder_name = ormr_folder_name)) {
-    message("Installed Python packages: ")
-    message(
-      paste0(
-        knitr::kable(
-          get_installed_python_packages(
-            ormr_folder_name = ormr_folder_name
-          )
-        ),
-        collapse = " \n"
-      )
+    tryCatch(
+      message(
+        paste0(
+          "Installed Python packages: \n",
+          knitr::kable(
+            ormr::get_installed_python_packages(
+              ormr_folder_name = ormr_folder_name
+            )
+          ),
+          collapse = " \n"
+        )
+      ),
+      error = function(e) {
+        message(
+          "Installed Python packages: N/A (",
+          e$message,
+          ")"
+        )
+      }
     )
   } else {
     message("Installed Python packages: N/A (need Conda environment to exist)")

@@ -8,7 +8,10 @@
 create_default_conda_env <- function(verbose = FALSE) {
   ormr_folder_name <- ormr::get_default_ormr_folder_name()
   tryCatch(
-    create_conda_env(ormr_folder_name = ormr_folder_name),
+    ormr::create_conda_env(
+      ormr_folder_name = ormr_folder_name,
+      verbose = verbose
+    ),
     error = function(e) {
       if (verbose) {
         message(e$message)

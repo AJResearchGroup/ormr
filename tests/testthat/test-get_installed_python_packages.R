@@ -8,9 +8,16 @@ test_that("minimal use", {
 
 test_that("no env", {
   ormr_folder_name <- tempfile()
+
+  expect_error(
+    get_installed_python_packages(ormr_folder_name = ormr_folder_name),
+    "failed to discover Python binary associated with path"
+  )
+  expect_false(dir.exists(ormr_folder_name))
+
+  skip("Now now")
   expect_error(
     get_installed_python_packages(ormr_folder_name = ormr_folder_name),
     "Tip: run 'ormr::create_conda_env"
   )
-  expect_false(dir.exists(ormr_folder_name))
 })
