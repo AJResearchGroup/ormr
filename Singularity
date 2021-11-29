@@ -51,9 +51,9 @@ exec R --vanilla --silent --no-echo "$@"
     echo "********************************"
     Rscript -e 'ormr::ormr_report(ormr_folder_name = "/opt/ormr")'
     echo "****************************"
-    echo "Run 'ormr::create_conda_env'"
+    echo "Run 'reticulate::use_condaenv'"
     echo "****************************"
-    Rscript -e 'ormr::create_conda_env(ormr_folder_name = "/opt/ormr")'
+    Rscript -e 'reticulate::use_condaenv(reticulate::use_condaenv = "/opt/ormr")'
     echo "*******************************"
     echo "Run 'ormr::ormr_report' (after)"
     echo "*******************************"
