@@ -11,7 +11,7 @@ get_installed_python_packages <- function(
   ormr_folder_name,
   verbose = FALSE
 ) {
-  ormr::check_conda_env_exists(ormr_folder_name = ormr_folder_name)
+  ormr::create_conda_env(ormr_folder_name = ormr_folder_name)
 
   # Activate Conda and Python
   reticulate::use_condaenv(condaenv = ormr_folder_name)
