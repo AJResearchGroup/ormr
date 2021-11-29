@@ -9,9 +9,6 @@
 # ./scripts/build_singularity_container.sh
 #
 #
-
 sudo -E singularity --quiet build ormr.sif Singularity
-#sudo -E singularity --quiet build --sandbox ormr.sif Singularity
-#sudo -E singularity --quiet build --writeable ormr.sif Singularity
 
 
