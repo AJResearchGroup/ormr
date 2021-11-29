@@ -4,7 +4,7 @@
 \alias{create_conda_env}
 \title{Create a Conda environment}
 \usage{
-create_conda_env(ormr_folder_name, python_version = "3.6")
+create_conda_env(ormr_folder_name, python_version = "3.6", verbose = FALSE)
 }
 \arguments{
 \item{ormr_folder_name}{name of the folder where \code{ormr}
@@ -17,6 +17,10 @@ as \code{ormr} is a sub-package
 for \code{gcaer}, where the latter needs to install the Python
 \code{tensorflow} package. For more recent Python versions, this
 install fails.}
+
+\item{verbose}{the verbosity of a function.
+Set to \link{TRUE} for more output.
+Use \link[plinkr]{check_verbose} to detect if this argument is valid.}
 }
 \value{
 Nothing
