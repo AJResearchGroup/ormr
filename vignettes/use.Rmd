@@ -86,9 +86,7 @@ Create the Conda environment (which is harmless if it already
 exists):
 
 ```{r}
-if (!ormr::does_conda_env_exists(ormr_folder_name = ormr_folder_name)) {
-  ormr::create_conda_env(ormr_folder_name = ormr_folder_name)  
-}
+ormr::create_conda_env(ormr_folder_name = ormr_folder_name)  
 ```
 
 Indeed, now the Conda environment exists:
@@ -105,7 +103,9 @@ testthat::expect_true(
 Currently, these packages are installed:
 
 ```{r}
-installed_python_packages <- ormr::get_installed_python_packages(ormr_folder_name = ormr_folder_name)
+installed_python_packages <- ormr::get_installed_python_packages(
+  ormr_folder_name = ormr_folder_name
+)
 knitr::kable(installed_python_packages)
 ```
 
