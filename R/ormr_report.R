@@ -9,6 +9,7 @@ ormr_report <- function(
 ) {
   message("OS: ", rappdirs::app_dir()$os)
   message("ormr_folder_name: ", ormr_folder_name)
+  message("RETICULATE_PYTHON: ", Sys.getenv("RETICULATE_PYTHON"))
   if (ormr::does_conda_env_exists(ormr_folder_name = ormr_folder_name)) {
     message("Conda environment exists: yes")
   } else {
