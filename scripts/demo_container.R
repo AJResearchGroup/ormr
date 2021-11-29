@@ -1,15 +1,20 @@
 library(ormr)
 ormr_report(ormr_folder_name = "/opt/ormr")
 
-download.file(
-  url = "https://raw.githubusercontent.com/richelbilderbeek/ormr/master/inst/extdata/scipy_example.py",
-  destfile = "scipy_example.py"
-)
+python_script_path <- system.file("extdata", "scipy_example.py", package = "ormr")
 
-reticulate::py_run_file(file = "scipy_example.py")
+if (1 == 2) {
+  python_script_path <- "scipy_example.py"
+  download.file(
+    url = "https://raw.githubusercontent.com/richelbilderbeek/ormr/master/inst/extdata/scipy_example.py",
+    destfile = python_script_path
+  )
+}
+
+reticulate::py_run_file(file = python_script_path)
 
 ormr::run_python_script(
   ormr_folder_name = "/opt/ormr",
-  python_script_path = "scipy_example.py"
+  python_script_path = python_script_path
 )
 
