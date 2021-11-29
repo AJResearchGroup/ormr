@@ -20,8 +20,6 @@ From: richelbilderbeek/default/plinkr:0.17.2.1
     Rscript -e 'ormr::create_conda_env(ormr_folder_name = "/opt/ormr")'
     Rscript -e 'ormr::install_python_package(ormr_folder_name = "/opt/ormr", package_name = "scipy")'
     Rscript -e 'ormr::ormr_report(ormr_folder_name = "/opt/ormr")'
-    ls /opt
-    ls /opt/ormr
 
 # 'ormr' needs this?
 # export PATH=/miniconda/bin:$PATH
@@ -47,11 +45,11 @@ exec R --vanilla --silent --no-echo "$@"
     echo "***********"
     echo "Show plinkr"
     echo "***********"
-    Rscript -e 'Sys.setenv("RETICULATE_PYTHON" = "/opt/ormr/bin/python"); plinkr::plinkr_report(plink_optionses = plinkr::create_plink_optionses(plink_folder = "/opt/plinkr"))'
+    Rscript -e 'plinkr::plinkr_report(plink_optionses = plinkr::create_plink_optionses(plink_folder = "/opt/plinkr"))'
     echo "***********************"
     echo "Run 'ormr::ormr_report'"
     echo "***********************"
-    Rscript -e 'ormr::ormr_report(ormr_folder_name = "/opt/ormr")'
+    Rscript -e 'Sys.setenv("RETICULATE_PYTHON" = "/opt/ormr/bin/python"); ormr::ormr_report(ormr_folder_name = "/opt/ormr")'
     echo "******************************"
     echo "Show that the Conda env exists"
     echo "******************************"
