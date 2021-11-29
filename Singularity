@@ -61,7 +61,7 @@ exec R --vanilla --silent --no-echo "$@"
     echo "******************************"
     echo "Run demo"
     echo "******************************"
-    Rscript scripts/demo_container.R
+    Rscript $PWD/scripts/demo_container.R
 
 %help
 
