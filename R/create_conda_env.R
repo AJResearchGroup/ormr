@@ -1,4 +1,7 @@
-#' Create a Conda environment
+#' Create a Conda environment if needed.
+#'
+#' Create a Conda environment if needed.
+#' If that environment already exists, nothing happens.
 #' @inheritParams default_params_doc
 #' @param python_version the Python version,
 #' which is 3.6 by default

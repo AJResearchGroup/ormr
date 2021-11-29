@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_conda_env.R
 \name{create_conda_env}
 \alias{create_conda_env}
-\title{Create a Conda environment}
+\title{Create a Conda environment if needed.}
 \usage{
 create_conda_env(ormr_folder_name, python_version = "3.6", verbose = FALSE)
 }
@@ -26,7 +26,8 @@ Use \link[plinkr]{check_verbose} to detect if this argument is valid.}
 Nothing
 }
 \description{
-Create a Conda environment
+Create a Conda environment if needed.
+If that environment already exists, nothing happens.
 }
 \note{
 the output of this function cannot be silenced, thanks
