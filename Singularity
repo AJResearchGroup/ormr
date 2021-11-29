@@ -46,10 +46,18 @@ exec R --vanilla --silent --no-echo "$@"
     echo "Show plinkr"
     echo "***********"
     Rscript -e 'plinkr::plinkr_report(plink_optionses = plinkr::create_plink_optionses(plink_folder = "/opt/plinkr"))'
-    echo "***********************"
-    echo "Run 'ormr::ormr_report'"
-    echo "***********************"
-    Rscript -e 'Sys.setenv("RETICULATE_PYTHON" = "/opt/ormr/bin/python"); ormr::ormr_report(ormr_folder_name = "/opt/ormr")'
+    echo "********************************"
+    echo "Run 'ormr::ormr_report' (before)"
+    echo "********************************"
+    Rscript -e 'ormr::ormr_report(ormr_folder_name = "/opt/ormr")'
+    echo "****************************"
+    echo "Run 'ormr::create_conda_env'"
+    echo "****************************"
+    Rscript -e 'ormr::create_conda_env(ormr_folder_name = "/opt/ormr")'
+    echo "*******************************"
+    echo "Run 'ormr::ormr_report' (after)"
+    echo "*******************************"
+    Rscript -e 'ormr::ormr_report(ormr_folder_name = "/opt/ormr")'
     echo "******************************"
     echo "Show that the Conda env exists"
     echo "******************************"
