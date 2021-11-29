@@ -47,7 +47,7 @@ exec R --vanilla --silent --no-echo "$@"
     echo "***********"
     echo "Show plinkr"
     echo "***********"
-    Rscript -e 'plinkr::plinkr_report(plink_optionses = plinkr::create_plink_optionses(plink_folder = "/opt/plinkr"))'
+    Rscript -e 'Sys.setenv("RETICULATE_PYTHON" = "/opt/ormr/bin/python"); plinkr::plinkr_report(plink_optionses = plinkr::create_plink_optionses(plink_folder = "/opt/plinkr"))'
     echo "***********************"
     echo "Run 'ormr::ormr_report'"
     echo "***********************"
