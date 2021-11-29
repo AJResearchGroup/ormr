@@ -58,10 +58,6 @@ exec R --vanilla --silent --no-echo "$@"
     echo "Show that 'scipy' is installed"
     echo "******************************"
     Rscript -e 'ormr::is_python_package_installed(ormr_folder_name = "/opt/ormr", package_name = "scipy")'
-    echo "******************************"
-    echo "Run demo"
-    echo "******************************"
-    Rscript $PWD/scripts/demo_container.R
 
 %help
 
