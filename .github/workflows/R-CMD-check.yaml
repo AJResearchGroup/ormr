@@ -19,14 +19,8 @@ jobs:
 
       - uses: r-lib/actions/setup-pandoc@v1
 
-#      - name: Install nvidia-cuda-toolkit
-#        run: sudo apt install -qq nvidia-cuda-toolkit
-
       - name: Install libcurl4-openssl-dev
         run: sudo apt install -qq libcurl4-openssl-dev
-
-#      - name: Install libpoppler-cpp-dev
-#        run: sudo apt install -qq libpoppler-cpp-dev
 
       - name: Install dependencies
         run: |
