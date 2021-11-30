@@ -4,7 +4,12 @@
 \alias{install_python_package}
 \title{Install one Python package}
 \usage{
-install_python_package(ormr_folder_name, package_name, verbose = FALSE)
+install_python_package(
+  ormr_folder_name,
+  package_name,
+  python_version = "3.6",
+  verbose = FALSE
+)
 }
 \arguments{
 \item{ormr_folder_name}{name of the folder where \code{ormr}

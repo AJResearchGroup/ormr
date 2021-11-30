@@ -17,10 +17,16 @@
 install_python_package <- function(
   ormr_folder_name,
   package_name,
+  python_version = "3.6", # From https://stackoverflow.com/a/69978354
   verbose = FALSE
 ) {
-  ormr::check_conda_env_exists(ormr_folder_name = ormr_folder_name)
   ormr::check_python_package_name(package_name = package_name)
+  ormr::create_conda_env(
+    ormr_folder_name = ormr_folder_name,
+    python_version = python_version,
+    verbose = verbose
+  )
+  ormr::check_conda_env_exists(ormr_folder_name = ormr_folder_name)
   reticulate::conda_install(
     packages = package_name,
     envname = ormr_folder_name
