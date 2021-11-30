@@ -28,8 +28,8 @@ which is the folder where `ormr` installs the Python environment and packages
 needed:
 
 ```{r get_ormr_folder_name}
-ormr_folder_name <- get_default_ormr_folder_name()
-ormr_folder_name
+# ormr_folder_name <- get_default_ormr_folder_name()
+ormr_folder_name <- tempfile()
 ```
 
 Note we use the default `ormr_folder_name`, as this package
@@ -69,36 +69,14 @@ may actually be installed.
 
 These are the steps to achieve the goal:
 
- 1. Create a Conda environment
- 2. Install Python packages within that Conda environment
- 3. Run a Python script with that Conda environment and packages
+ 1. Install Python packages
+ 2. Run a Python script
+ 
+Note that there is no need to create a Conda environment:
+this is what `ormr` does for you. `ormr` uses **eager loading**,
+which is the opposite of `reticulate`'s lazy loading.
 
-## 1. Create a Conda environment
-
-Initially, the Conda environment *may* not exist,
-unless the default Conda environment is used.
-
-```{r show_does_conda_env_exists_maybe_not_yet}
-does_conda_env_exists(ormr_folder_name = ormr_folder_name)
-```
-
-Create the Conda environment (which is harmless if it already
-exists):
-
-```{r create_conda_env}
-create_conda_env(ormr_folder_name = ormr_folder_name)  
-```
-
-Indeed, now the Conda environment exists:
-
-```{r show_does_conda_env_exists}
-testthat::expect_true(
-  ormr::does_conda_env_exists(ormr_folder_name = ormr_folder_name)
-)
-```
-
-
-## 2. Install Python packages within that Conda environment
+## 1. Install Python packages within that Conda environment
 
 Currently, these packages are installed:
 
@@ -163,9 +141,9 @@ testthat::expect_true(
 )
 ```
 
-## 3. Run a Python script with that Conda environment and packages
+## 2. Run a Python script with that Conda environment and packages
 
-Great, with our environment and packages in place,
+Great, with packages in place,
 we run a Python script with those packages:
 
 ```{r}
