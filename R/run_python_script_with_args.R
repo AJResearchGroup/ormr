@@ -17,10 +17,10 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 run_python_script_with_args <- function(
-  ormr_folder_name,
   python_script_path,
   args = c(),
-  python_version = "3.6", # From https://stackoverflow.com/a/69978354
+  ormr_folder_name = get_default_ormr_folder_name(),
+  python_version = get_default_python_version(),
   verbose = FALSE
 ) {
   ormr::create_and_activate_conda_env(

@@ -9,7 +9,7 @@
 #' @export
 get_installed_python_packages <- function(
   ormr_folder_name,
-  python_version = "3.6", # From https://stackoverflow.com/a/69978354
+  python_version = get_default_python_version(),
   verbose = FALSE
 ) {
   ormr::create_and_activate_conda_env(

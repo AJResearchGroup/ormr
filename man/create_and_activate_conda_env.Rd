@@ -6,7 +6,7 @@
 \usage{
 create_and_activate_conda_env(
   ormr_folder_name,
-  python_version,
+  python_version = get_default_python_version(),
   verbose = FALSE
 )
 }
@@ -18,7 +18,13 @@ installs all Python environments and packages}
 Set to \link{TRUE} for more output.
 Use \link[plinkr]{check_verbose} to detect if this argument is valid.}
 }
+\value{
+Nothing
+}
 \description{
 Creates and activates the Conda environment.
 If the Conda environment already exists, nothing new will happen
+}
+\author{
+Richèl J.C. Bilderbeek
 }

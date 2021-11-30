@@ -7,7 +7,7 @@
 install_python_package(
   ormr_folder_name,
   package_name,
-  python_version = "3.6",
+  python_version = get_default_python_version(),
   verbose = FALSE
 )
 }

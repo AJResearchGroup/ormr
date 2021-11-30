@@ -6,7 +6,7 @@
 #' @export
 ormr_report <- function(
   ormr_folder_name,
-  python_version = "3.6" # From https://stackoverflow.com/a/69978354
+  python_version = get_default_python_version()
 ) {
   ormr::create_and_activate_conda_env(
     ormr_folder_name = ormr_folder_name,

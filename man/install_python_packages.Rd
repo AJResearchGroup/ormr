@@ -5,17 +5,17 @@
 \title{Install one or more Python packages}
 \usage{
 install_python_packages(
-  ormr_folder_name,
   package_names,
-  python_version = "3.6",
+  ormr_folder_name = get_default_ormr_folder_name(),
+  python_version = get_default_python_version(),
   verbose = FALSE
 )
 }
 \arguments{
+\item{package_names}{the names of one or more Python packages}
+
 \item{ormr_folder_name}{name of the folder where \code{ormr}
 installs all Python environments and packages}
-
-\item{package_names}{the names of one or more Python packages}
 
 \item{verbose}{the verbosity of a function.
 Set to \link{TRUE} for more output.
@@ -28,11 +28,7 @@ nothing
 Install one or more Python packages
 }
 \examples{
-ormr_folder_name <- create_default_conda_env()
-
-# Note that these packages may already be installed
 install_python_packages(
-  ormr_folder_name = ormr_folder_name,
   package_names = c("scipy", "readline")
 )
 }

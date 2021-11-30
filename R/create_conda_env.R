@@ -25,7 +25,7 @@
 #' @export
 create_conda_env <- function(
   ormr_folder_name,
-  python_version = "3.6", # From https://stackoverflow.com/a/69978354
+  python_version = get_default_python_version(),
   verbose = FALSE
 ) {
   if (ormr::does_conda_env_exists(ormr_folder_name = ormr_folder_name)) {

@@ -18,7 +18,7 @@ if (1 + 1 == 2) {
 } else {
   python_path <- reticulate::conda_create(
     envname = ormr_folder_name,
-    python_version = "3.6" # From https://stackoverflow.com/a/69978354
+    python_version = get_default_python_version()
   )
 }
 testthat::expect_true(file.exists(python_path))

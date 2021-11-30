@@ -5,20 +5,20 @@
 \title{Run a Python script with command-line arguments}
 \usage{
 run_python_script_with_args(
-  ormr_folder_name,
   python_script_path,
   args = c(),
-  python_version = "3.6",
+  ormr_folder_name = get_default_ormr_folder_name(),
+  python_version = get_default_python_version(),
   verbose = FALSE
 )
 }
 \arguments{
-\item{ormr_folder_name}{name of the folder where \code{ormr}
-installs all Python environments and packages}
-
 \item{python_script_path}{path to a Python script}
 
 \item{args}{arguments to a script, for example \code{--help}}
+
+\item{ormr_folder_name}{name of the folder where \code{ormr}
+installs all Python environments and packages}
 
 \item{verbose}{the verbosity of a function.
 Set to \link{TRUE} for more output.

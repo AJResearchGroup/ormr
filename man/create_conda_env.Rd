@@ -4,7 +4,11 @@
 \alias{create_conda_env}
 \title{Create a Conda environment if needed.}
 \usage{
-create_conda_env(ormr_folder_name, python_version = "3.6", verbose = FALSE)
+create_conda_env(
+  ormr_folder_name,
+  python_version = get_default_python_version(),
+  verbose = FALSE
+)
 }
 \arguments{
 \item{ormr_folder_name}{name of the folder where \code{ormr}

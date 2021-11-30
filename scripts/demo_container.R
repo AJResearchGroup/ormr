@@ -9,9 +9,9 @@ if (1 == 2) {
     url = "https://raw.githubusercontent.com/richelbilderbeek/ormr/master/inst/extdata/scipy_example.py",
     destfile = python_script_path
   )
+  reticulate::py_run_file(file = python_script_path)
 }
 
-reticulate::py_run_file(file = python_script_path)
 
 ormr::run_python_script(
   ormr_folder_name = "/opt/ormr",

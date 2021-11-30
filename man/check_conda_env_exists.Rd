@@ -4,7 +4,7 @@
 \alias{check_conda_env_exists}
 \title{Check if the Conda environment exists}
 \usage{
-check_conda_env_exists(ormr_folder_name)
+check_conda_env_exists(ormr_folder_name = get_default_ormr_folder_name())
 }
 \arguments{
 \item{ormr_folder_name}{name of the folder where \code{ormr}

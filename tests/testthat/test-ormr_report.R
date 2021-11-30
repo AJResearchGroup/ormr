@@ -15,3 +15,12 @@ test_that("use, default version", {
     )
   )
 })
+
+test_that("use, default version", {
+  suppressMessages(
+    expect_message(
+      ormr_report(ormr_folder_name = get_default_ormr_folder_name()),
+      "ormr_folder_name"
+    )
+  )
+})

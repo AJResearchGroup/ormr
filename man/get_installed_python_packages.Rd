@@ -6,7 +6,7 @@
 \usage{
 get_installed_python_packages(
   ormr_folder_name,
-  python_version = "3.6",
+  python_version = get_default_python_version(),
   verbose = FALSE
 )
 }

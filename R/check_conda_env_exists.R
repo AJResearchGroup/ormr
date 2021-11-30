@@ -7,7 +7,7 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_conda_env_exists <- function(
-  ormr_folder_name
+  ormr_folder_name = get_default_ormr_folder_name()
 ) {
   conda_envs <- reticulate::conda_list()
   if (!basename(ormr_folder_name) %in% conda_envs$name) {
