@@ -23,7 +23,7 @@ test_that("verbose", {
       ormr_folder_name = ormr_folder_name,
       verbose = TRUE
     ),
-    "Conda environment does not exist"
+    "failed to discover Python binary associated with path"
   )
 
   create_conda_env(ormr_folder_name = ormr_folder_name)
