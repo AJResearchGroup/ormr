@@ -25,13 +25,10 @@ jobs:
       - name: Show singularity version
         run: singularity version
 
-#      - name: Show present working directory
-#        run: echo $PWD
-
-      - name: Build Container
+      - name: Build Container, installs scipy Python package
         run: ./scripts/build_singularity_container.sh
 
-      - name: Test container, must detect GCAE
+      - name: Test container, must detect scipy Python package
         run: singularity test ormr.sif
 
       - name: Show help of container
