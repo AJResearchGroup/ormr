@@ -4,11 +4,19 @@
 \alias{ormr_report}
 \title{Create a \code{ormr} report, to be used when reporting bugs}
 \usage{
-ormr_report(ormr_folder_name, python_version = get_default_python_version())
+ormr_report(
+  ormr_folder_name = get_default_ormr_folder_name(),
+  python_version = get_default_python_version(),
+  verbose = FALSE
+)
 }
 \arguments{
 \item{ormr_folder_name}{name of the folder where \code{ormr}
 installs all Python environments and packages}
+
+\item{verbose}{the verbosity of a function.
+Set to \link{TRUE} for more output.
+Use \link[plinkr]{check_verbose} to detect if this argument is valid.}
 }
 \description{
 Create a \code{ormr} report, to be used when reporting bugs

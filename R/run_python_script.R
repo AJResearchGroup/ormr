@@ -17,11 +17,13 @@
 run_python_script <- function(
   ormr_folder_name,
   python_script_path,
-  python_version = get_default_python_version()
+  python_version = get_default_python_version(),
+  verbose = FALSE
 ) {
   ormr::create_and_activate_conda_env(
     ormr_folder_name = ormr_folder_name,
-    python_version = python_version
+    python_version = python_version,
+    verbose = verbose
   )
   output <- reticulate::py_capture_output(
     reticulate::py_run_file(

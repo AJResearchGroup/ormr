@@ -34,6 +34,10 @@ create_conda_env <- function(
     }
     return(invisible(ormr_folder_name))
   }
+  if (verbose) {
+    message("No Conda environment found at ", ormr_folder_name)
+    message("Creating Conda environment at ", ormr_folder_name)
+  }
   tryCatch(
     reticulate::conda_create(
       envname = ormr_folder_name,

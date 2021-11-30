@@ -40,23 +40,10 @@ exec R --vanilla --silent --no-echo "$@"
     echo "Run 'ormr::ormr_report'"
     echo "********************************"
     Rscript -e 'ormr::ormr_report(ormr_folder_name = "/opt/ormr", verbose = TRUE)'
-    #echo "****************************"
-    #echo "Run 'reticulate::use_condaenv'"
-    #echo "****************************"
-    #Rscript -e 'reticulate::use_condaenv(condaenv = "/opt/ormr")'
-    #Rscript -e 'reticulate::use_python(python = "/opt/ormr/bin/python", required = TRUE)'
-    #echo "*******************************"
-    #echo "Run 'ormr::ormr_report' (after)"
-    #echo "*******************************"
-    #Rscript -e 'reticulate::use_condaenv(condaenv = "/opt/ormr"); reticulate::use_python(python = "/opt/ormr/bin/python", required = TRUE); ormr::ormr_report(ormr_folder_name = "/opt/ormr")'
-    echo "******************************"
-    echo "Show that the Conda env exists"
-    echo "******************************"
-    Rscript -e 'ormr::does_conda_env_exists(ormr_folder_name = "/opt/ormr")'
     echo "******************************"
     echo "Show that 'scipy' is installed"
     echo "******************************"
-    Rscript -e 'ormr::is_python_package_installed(ormr_folder_name = "/opt/ormr", package_name = "scipy")'
+    Rscript -e 'ormr::is_python_package_installed(ormr_folder_name = "/opt/ormr", package_name = "scipy", verbose = TRUE)'
 
 %help
 

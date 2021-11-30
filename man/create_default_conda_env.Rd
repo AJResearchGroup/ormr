@@ -4,9 +4,16 @@
 \alias{create_default_conda_env}
 \title{Create and/or get the default \code{ormr} Conda enviroment}
 \usage{
-create_default_conda_env(verbose = FALSE)
+create_default_conda_env(
+  ormr_folder_name = get_default_ormr_folder_name(),
+  python_version = get_default_python_version(),
+  verbose = FALSE
+)
 }
 \arguments{
+\item{ormr_folder_name}{name of the folder where \code{ormr}
+installs all Python environments and packages}
+
 \item{verbose}{the verbosity of a function.
 Set to \link{TRUE} for more output.
 Use \link[plinkr]{check_verbose} to detect if this argument is valid.}

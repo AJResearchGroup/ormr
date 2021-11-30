@@ -11,18 +11,28 @@ create_and_activate_conda_env <- function(
   python_version = get_default_python_version(),
   verbose = FALSE
 ) {
-  # Create the env, will check if it already exists
+  if (verbose) {
+    message("Create the environment, will check if it already exists")
+  }
   ormr::create_conda_env(
     ormr_folder_name = ormr_folder_name,
     python_version = python_version,
     verbose = verbose
   )
 
-  # Activate the env
+  if (verbose) {
+    message(
+      "Activating the Conda environment with 'condaenv' ",
+      ormr_folder_name
+    )
+  }
   reticulate::use_condaenv(condaenv = ormr_folder_name)
   python_path <- ormr::get_python_binary_path(
     ormr_folder_name = ormr_folder_name
   )
+  if (verbose) {
+    message("Activating Python with'python_path' ", python_path)
+  }
   reticulate::use_python(python = python_path, required = TRUE)
 
 

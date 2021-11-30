@@ -7,7 +7,8 @@
 run_python_script(
   ormr_folder_name,
   python_script_path,
-  python_version = get_default_python_version()
+  python_version = get_default_python_version(),
+  verbose = FALSE
 )
 }
 \arguments{
@@ -15,6 +16,10 @@ run_python_script(
 installs all Python environments and packages}
 
 \item{python_script_path}{path to a Python script}
+
+\item{verbose}{the verbosity of a function.
+Set to \link{TRUE} for more output.
+Use \link[plinkr]{check_verbose} to detect if this argument is valid.}
 }
 \value{
 The output of the Python script
