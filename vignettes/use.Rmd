@@ -27,7 +27,7 @@ We use only one point of contact, `ormr_folder_name`,
 which is the folder where `ormr` installs the Python environment and packages
 needed:
 
-```{r}
+```{r get_ormr_folder_name}
 ormr_folder_name <- get_default_ormr_folder_name()
 ormr_folder_name
 ```
@@ -44,7 +44,7 @@ where Python is installed to a custom location.
 
 Here is the example Python script we want to run:
 
-```{r}
+```{r show_python_script}
 python_script_path <- system.file("extdata", "scipy_example.py", package = "ormr")
 readLines(python_script_path)
 ```
@@ -52,7 +52,7 @@ readLines(python_script_path)
 As a spoiler, it is demonstrated here that the script *maybe*
 cannot be run yet:
 
-```{r}
+```{r cannot_run_python_script_yet}
 try(
   run_python_script(
     ormr_folder_name = ormr_folder_name,
@@ -78,20 +78,20 @@ These are the steps to achieve the goal:
 Initially, the Conda environment *may* not exist,
 unless the default Conda environment is used.
 
-```{r}
-ormr::does_conda_env_exists(ormr_folder_name = ormr_folder_name)
+```{r show_does_conda_env_exists_maybe_not_yet}
+does_conda_env_exists(ormr_folder_name = ormr_folder_name)
 ```
 
 Create the Conda environment (which is harmless if it already
 exists):
 
-```{r}
-ormr::create_conda_env(ormr_folder_name = ormr_folder_name)  
+```{r create_conda_env}
+create_conda_env(ormr_folder_name = ormr_folder_name)  
 ```
 
 Indeed, now the Conda environment exists:
 
-```{r}
+```{r show_does_conda_env_exists}
 testthat::expect_true(
   ormr::does_conda_env_exists(ormr_folder_name = ormr_folder_name)
 )
