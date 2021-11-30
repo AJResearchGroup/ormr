@@ -25,31 +25,32 @@ packages and run Python scripts.
 `ormr` uses one point of contact, `ormr_folder_name`.
 For convenience, there is also a default `ormr_folder_name`.
 
-  1. Get the default `ormr_folder_name`
-  2. Create the default Conda environment
-  3. Install a Python package
-  4. Run a Python script
-  5. Run a Python script with command-line arguments
+  1. Install a Python package
+  2. Run a Python script
+  3. Run a Python script with command-line arguments
 
-## 1. Get the default `ormr_folder_name`
-
-```r
-ormr_folder_name <- get_default_ormr_folder_name()
-```
-
-## 2. Create the default Conda environment
-
-```r
-ormr_folder_name <- create_default_conda_env()
-```
+Also, `ormr` uses **eager loading**, which means that
+it will setup everything it needs for you. For example,
+if you want to run a Python script from a new `ormr_folder_name`,
+it will create a Conda environment there for you as well.
 
 Note that `create_default_conda_env` conveniently returns the
 `ormr_folder_name` used to work with this environment.
 
-## 3. Install a Python package
+## 1. Install a Python package
+
+Using the default `ormr` environment:
 
 ```r
-ormr_folder_name <- create_default_conda_env()
+install_python_package(
+  package_name = "scipy"
+)
+```
+
+Using a custom `ormr_folder_name`:
+
+```r
+ormr_folder_name <- tempfile()
 
 install_python_package(
   ormr_folder_name = ormr_folder_name,
@@ -57,10 +58,23 @@ install_python_package(
 )
 ```
 
-## 4. Run a Python script
+## 2. Run a Python script
+
+Using the default `ormr` environment:
 
 ```r
-ormr_folder_name <- create_default_conda_env()
+python_script_path <- system.file(
+  "extdata", "hello_world.py", package = "ormr"
+)
+run_python_script(
+  python_script_path = python_script_path
+)
+```
+
+Using a custom `ormr_folder_name`:
+
+```r
+ormr_folder_name <- tempfile()
 python_script_path <- system.file(
   "extdata", "hello_world.py", package = "ormr"
 )
@@ -70,11 +84,24 @@ run_python_script(
 )
 ```
 
+## 3. Run a Python script with command-line arguments
 
-## 5. Run a Python script with command-line arguments
+Using the default `ormr` environment:
 
 ```r
-ormr_folder_name <- create_default_conda_env()
+python_script_path <- system.file(
+  "extdata", "show_args.py", package = "ormr"
+)
+run_python_script_with_args(
+  python_script_path = python_script_path,
+  args = c("Hello", "world")
+)
+```
+
+Using a custom `ormr_folder_name`:
+
+```r
+ormr_folder_name <- tempfile()
 python_script_path <- system.file(
   "extdata", "show_args.py", package = "ormr"
 )
@@ -115,11 +142,23 @@ more powerful and flexible.
 
 `ormr`, however, focuses
 on making it trivially simple to install Python
-packages and run Python scripts. 
+packages and run Python scripts,
+due to eager loading.
 Additionally, `ormr` has a more extensive documentation,
 and 100% code coverage.
 
 Beyond the domain of `ormr`, use `reticulate`.
+
+## What do you mean with eager loading?
+
+Eager loading is the opposite of lazy loading.
+
+Here, it is defined as 'if you want `ormr` to do B, which depends on 
+the setup of A', `ormr` will setup A, then do B. For example, to install
+a package to a certain `ormr_folder_name` ('to do B'), `ormr`
+will create a Conda environment for that ('the setup of A').
+
+This means that no setup code is necessary.
 
 ## There is a feature I miss
 

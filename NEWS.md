@@ -2,6 +2,24 @@
 
 Newest versions at top.
 
+## `ormr` v0.6.1 (unreleased)
+
+### NEW FEATURES
+
+ * None
+
+### MINOR IMPROVEMENTS
+
+ * None
+
+### BUG FIXES
+
+ * None
+
+### DEPRECATED AND DEFUNCT
+
+ * None
+
 ## `ormr` v0.6 (2021-11-30)
 
 ### NEW FEATURES
