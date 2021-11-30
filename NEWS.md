@@ -2,10 +2,11 @@
 
 Newest versions at top.
 
-## `ormr` v0.6 (unreleased)
+## `ormr` v0.6 (2021-11-30)
 
 ### NEW FEATURES
 
+ * Eager loading, call any function without any setup
  * Can run `run_python_script_with_args` verbosely
 
 ### MINOR IMPROVEMENTS
