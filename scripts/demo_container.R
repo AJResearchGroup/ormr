@@ -1,4 +1,9 @@
 library(ormr)
+
+# Remove these in the future, make 'ormr_report' more eager
+reticulate::use_condaenv(condaenv = "/opt/ormr")
+reticulate::use_python(python = reticulate:::python_binary_path("/opt/ormr"), required = TRUE)
+
 ormr_report(ormr_folder_name = "/opt/ormr")
 
 python_script_path <- system.file("extdata", "scipy_example.py", package = "ormr")
