@@ -27,6 +27,9 @@ run_python_script_with_args <- function(
     ormr_folder_name = ormr_folder_name,
     python_version = python_version
   )
+  python_path <- ormr::get_python_binary_path(
+    ormr_folder_name = ormr_folder_name
+  )
   run_args <- c(
     normalizePath(python_path),
     python_script_path,
