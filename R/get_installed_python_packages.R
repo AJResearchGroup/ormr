@@ -14,7 +14,8 @@ get_installed_python_packages <- function(
 ) {
   ormr::create_and_activate_conda_env(
     ormr_folder_name = ormr_folder_name,
-    python_version = python_version
+    python_version = python_version,
+    verbose = verbose
   )
   tibble::tibble(
     reticulate:::conda_list_packages(envname = ormr_folder_name) # nolint creates Issue to encourage reticulate to export this function, https://github.com/rstudio/reticulate/issues/1056
