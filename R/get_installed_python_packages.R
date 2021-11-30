@@ -5,10 +5,12 @@
 #'  * `version`: the package version
 #'  * `requirement`: the packages requirements
 #'  * `channel`: the package's channel
+#' @examples
+#' get_installed_python_packages()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_installed_python_packages <- function(
-  ormr_folder_name,
+  ormr_folder_name = get_default_ormr_folder_name(),
   python_version = get_default_python_version(),
   verbose = FALSE
 ) {

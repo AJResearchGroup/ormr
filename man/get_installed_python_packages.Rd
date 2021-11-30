@@ -5,7 +5,7 @@
 \title{Get the installed  Python packages and their versions}
 \usage{
 get_installed_python_packages(
-  ormr_folder_name,
+  ormr_folder_name = get_default_ormr_folder_name(),
   python_version = get_default_python_version(),
   verbose = FALSE
 )
@@ -33,6 +33,9 @@ a \link[tibble]{tibble} with two rows:
 }
 \description{
 Get the installed  Python packages and their versions
+}
+\examples{
+get_installed_python_packages()
 }
 \author{
 Richèl J.C. Bilderbeek

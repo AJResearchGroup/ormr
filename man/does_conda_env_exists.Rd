@@ -4,7 +4,10 @@
 \alias{does_conda_env_exists}
 \title{Determine if a Conda environment exists}
 \usage{
-does_conda_env_exists(ormr_folder_name, verbose = FALSE)
+does_conda_env_exists(
+  ormr_folder_name = get_default_ormr_folder_name(),
+  verbose = FALSE
+)
 }
 \arguments{
 \item{ormr_folder_name}{name of the folder where \code{ormr}
@@ -21,6 +24,7 @@ TRUE if a Conda environment exists
 Determine if a Conda environment exists
 }
 \examples{
+does_conda_env_exists()
 does_conda_env_exists(ormr_folder_name = tempfile())
 }
 \author{

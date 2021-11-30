@@ -5,19 +5,19 @@
 \title{Install a Python package with a certain version}
 \usage{
 install_python_package_with_version(
-  ormr_folder_name,
   package_name,
-  package_version
+  package_version,
+  ormr_folder_name = get_default_ormr_folder_name()
 )
 }
 \arguments{
-\item{ormr_folder_name}{name of the folder where \code{ormr}
-installs all Python environments and packages}
-
 \item{package_name}{the name of one Python package}
 
 \item{package_version}{a Python package's version, e.g.
 \verb{==3.1}, or \verb{<=2.7.1} or \verb{>=42}}
+
+\item{ormr_folder_name}{name of the folder where \code{ormr}
+installs all Python environments and packages}
 }
 \value{
 nothing
@@ -26,15 +26,11 @@ nothing
 Install a Python package with a certain version
 }
 \examples{
-ormr_folder_name <- create_default_conda_env()
-
 install_python_package_with_version(
-  ormr_folder_name = ormr_folder_name,
   package_name = "scipy",
   package_version = "1.5.3"
 )
 install_python_package_with_version(
-  ormr_folder_name = ormr_folder_name,
   package_name = "scipy",
   package_version = "1.5.2"
 )

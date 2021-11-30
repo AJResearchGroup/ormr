@@ -5,17 +5,17 @@
 \title{Run a Python script}
 \usage{
 run_python_script(
-  ormr_folder_name,
   python_script_path,
+  ormr_folder_name = get_default_ormr_folder_name(),
   python_version = get_default_python_version(),
   verbose = FALSE
 )
 }
 \arguments{
+\item{python_script_path}{path to a Python script}
+
 \item{ormr_folder_name}{name of the folder where \code{ormr}
 installs all Python environments and packages}
-
-\item{python_script_path}{path to a Python script}
 
 \item{python_version}{the version of Python used.
 Use \link{get_default_python_version} to get

@@ -5,7 +5,7 @@
 \title{Creates and activates the Conda environment}
 \usage{
 create_and_activate_conda_env(
-  ormr_folder_name,
+  ormr_folder_name = get_default_ormr_folder_name(),
   python_version = get_default_python_version(),
   verbose = FALSE
 )
@@ -28,6 +28,9 @@ Nothing
 \description{
 Creates and activates the Conda environment.
 If the Conda environment already exists, nothing new will happen
+}
+\examples{
+create_and_activate_conda_env()
 }
 \author{
 Richèl J.C. Bilderbeek

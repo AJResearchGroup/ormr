@@ -5,7 +5,7 @@
 \title{Create a Conda environment if needed.}
 \usage{
 create_conda_env(
-  ormr_folder_name,
+  ormr_folder_name = get_default_ormr_folder_name(),
   python_version = get_default_python_version(),
   verbose = FALSE
 )

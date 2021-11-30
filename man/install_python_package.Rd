@@ -5,17 +5,17 @@
 \title{Install one Python package}
 \usage{
 install_python_package(
-  ormr_folder_name,
   package_name,
+  ormr_folder_name = get_default_ormr_folder_name(),
   python_version = get_default_python_version(),
   verbose = FALSE
 )
 }
 \arguments{
+\item{package_name}{the name of one Python package}
+
 \item{ormr_folder_name}{name of the folder where \code{ormr}
 installs all Python environments and packages}
-
-\item{package_name}{the name of one Python package}
 
 \item{python_version}{the version of Python used.
 Use \link{get_default_python_version} to get

@@ -4,10 +4,12 @@
 #' If the Conda environment already exists, nothing new will happen
 #' @inheritParams default_params_doc
 #' @return Nothing
+#' @examples
+#' create_and_activate_conda_env()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_and_activate_conda_env <- function(
-  ormr_folder_name,
+  ormr_folder_name = get_default_ormr_folder_name(),
   python_version = get_default_python_version(),
   verbose = FALSE
 ) {

@@ -4,7 +4,7 @@
 \alias{get_python_binary_path}
 \title{Get the path to the \code{python} binary}
 \usage{
-get_python_binary_path(ormr_folder_name)
+get_python_binary_path(ormr_folder_name = get_default_ormr_folder_name())
 }
 \arguments{
 \item{ormr_folder_name}{name of the folder where \code{ormr}
@@ -15,6 +15,9 @@ the path to the actve \code{python} binary
 }
 \description{
 Get the path to the \code{python} binary
+}
+\examples{
+get_python_binary_path()
 }
 \author{
 Richèl J.C. Bilderbeek

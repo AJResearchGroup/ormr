@@ -4,6 +4,8 @@
 #' Will \link{stop} if not
 #' @inheritParams default_params_doc
 #' @return Nothing
+#' @examples
+#' check_conda_env_exists()
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_conda_env_exists <- function(
