@@ -5,11 +5,15 @@
 #' create_default_conda_env()
 #' @author Richèl J.C. Bilderbeek
 #' @export
-create_default_conda_env <- function(verbose = FALSE) {
-  ormr_folder_name <- ormr::get_default_ormr_folder_name()
+create_default_conda_env <- function(
+  ormr_folder_name = get_default_ormr_folder_name(),
+  python_version = get_default_python_version(),
+  verbose = FALSE
+) {
   tryCatch(
     ormr::create_conda_env(
       ormr_folder_name = ormr_folder_name,
+      python_version = python_version,
       verbose = verbose
     ),
     error = function(e) {

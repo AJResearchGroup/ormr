@@ -37,18 +37,18 @@ exec R --vanilla --silent --no-echo "$@"
     echo "***********"
     Rscript -e 'plinkr::plinkr_report(plink_optionses = plinkr::create_plink_optionses(plink_folder = "/opt/plinkr"))'
     echo "********************************"
-    echo "Run 'ormr::ormr_report' (before)"
+    echo "Run 'ormr::ormr_report'"
     echo "********************************"
-    Rscript -e 'ormr::ormr_report(ormr_folder_name = "/opt/ormr")'
-    echo "****************************"
-    echo "Run 'reticulate::use_condaenv'"
-    echo "****************************"
-    Rscript -e 'reticulate::use_condaenv(condaenv = "/opt/ormr")'
-    Rscript -e 'reticulate::use_python(python = "/opt/ormr/bin/python", required = TRUE)'
-    echo "*******************************"
-    echo "Run 'ormr::ormr_report' (after)"
-    echo "*******************************"
-    Rscript -e 'reticulate::use_condaenv(condaenv = "/opt/ormr"); reticulate::use_python(python = "/opt/ormr/bin/python", required = TRUE); ormr::ormr_report(ormr_folder_name = "/opt/ormr")'
+    Rscript -e 'ormr::ormr_report(ormr_folder_name = "/opt/ormr", verbose = TRUE)'
+    #echo "****************************"
+    #echo "Run 'reticulate::use_condaenv'"
+    #echo "****************************"
+    #Rscript -e 'reticulate::use_condaenv(condaenv = "/opt/ormr")'
+    #Rscript -e 'reticulate::use_python(python = "/opt/ormr/bin/python", required = TRUE)'
+    #echo "*******************************"
+    #echo "Run 'ormr::ormr_report' (after)"
+    #echo "*******************************"
+    #Rscript -e 'reticulate::use_condaenv(condaenv = "/opt/ormr"); reticulate::use_python(python = "/opt/ormr/bin/python", required = TRUE); ormr::ormr_report(ormr_folder_name = "/opt/ormr")'
     echo "******************************"
     echo "Show that the Conda env exists"
     echo "******************************"
