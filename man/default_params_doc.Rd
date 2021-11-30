@@ -12,6 +12,7 @@ default_params_doc(
   package_names,
   package_version,
   python_script_path,
+  python_version,
   verbose
 )
 }
@@ -29,6 +30,10 @@ installs all Python environments and packages}
 \verb{==3.1}, or \verb{<=2.7.1} or \verb{>=42}}
 
 \item{python_script_path}{path to a Python script}
+
+\item{python_version}{the version of Python used.
+Use \link{get_default_python_version} to get
+the default Python version.}
 
 \item{verbose}{the verbosity of a function.
 Set to \link{TRUE} for more output.

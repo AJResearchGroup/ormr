@@ -17,6 +17,10 @@ installs all Python environments and packages}
 
 \item{package_name}{the name of one Python package}
 
+\item{python_version}{the version of Python used.
+Use \link{get_default_python_version} to get
+the default Python version.}
+
 \item{verbose}{the verbosity of a function.
 Set to \link{TRUE} for more output.
 Use \link[plinkr]{check_verbose} to detect if this argument is valid.}

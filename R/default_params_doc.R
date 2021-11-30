@@ -9,6 +9,9 @@
 #' @param package_version a Python package's version, e.g.
 #' `==3.1`, or `<=2.7.1` or `>=42`
 #' @param python_script_path path to a Python script
+#' @param python_version the version of Python used.
+#' Use \link{get_default_python_version} to get
+#' the default Python version.
 #' @param verbose the verbosity of a function.
 #' Set to \link{TRUE} for more output.
 #' Use \link[plinkr]{check_verbose} to detect if this argument is valid.
@@ -23,6 +26,7 @@ default_params_doc <- function(
   package_names,
   package_version,
   python_script_path,
+  python_version,
   verbose
 ) {
   # Nothing
