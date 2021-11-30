@@ -21,10 +21,9 @@ install_python_package <- function(
   verbose = FALSE
 ) {
   ormr::check_python_package_name(package_name = package_name)
-  ormr::create_conda_env(
+  ormr::create_and_activate_conda_env(
     ormr_folder_name = ormr_folder_name,
-    python_version = python_version,
-    verbose = verbose
+    python_version = python_version
   )
   ormr::check_conda_env_exists(ormr_folder_name = ormr_folder_name)
   reticulate::conda_install(

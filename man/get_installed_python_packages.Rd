@@ -4,7 +4,11 @@
 \alias{get_installed_python_packages}
 \title{Get the installed  Python packages and their versions}
 \usage{
-get_installed_python_packages(ormr_folder_name, verbose = FALSE)
+get_installed_python_packages(
+  ormr_folder_name,
+  python_version = "3.6",
+  verbose = FALSE
+)
 }
 \arguments{
 \item{ormr_folder_name}{name of the folder where \code{ormr}

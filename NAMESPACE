@@ -2,6 +2,7 @@
 
 export(check_conda_env_exists)
 export(check_python_package_name)
+export(create_and_activate_conda_env)
 export(create_conda_env)
 export(create_default_conda_env)
 export(does_conda_env_exists)

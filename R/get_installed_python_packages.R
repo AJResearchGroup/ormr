@@ -9,17 +9,13 @@
 #' @export
 get_installed_python_packages <- function(
   ormr_folder_name,
+  python_version = "3.6", # From https://stackoverflow.com/a/69978354
   verbose = FALSE
 ) {
-  ormr::create_conda_env(ormr_folder_name = ormr_folder_name, verbose = TRUE)
-
-  # Activate Conda and Python
-  reticulate::use_condaenv(condaenv = ormr_folder_name)
-  python_path <- ormr::get_python_binary_path(
-    ormr_folder_name = ormr_folder_name
+  ormr::create_and_activate_conda_env(
+    ormr_folder_name = ormr_folder_name,
+    python_version = python_version
   )
-  reticulate::use_python(python = python_path, required = TRUE)
-
   tibble::tibble(
     reticulate:::conda_list_packages(envname = ormr_folder_name) # nolint creates Issue to encourage reticulate to export this function, https://github.com/rstudio/reticulate/issues/1056
   )

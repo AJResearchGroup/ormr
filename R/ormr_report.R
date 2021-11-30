@@ -5,8 +5,13 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 ormr_report <- function(
-  ormr_folder_name
+  ormr_folder_name,
+  python_version = "3.6" # From https://stackoverflow.com/a/69978354
 ) {
+  ormr::create_and_activate_conda_env(
+    ormr_folder_name = ormr_folder_name,
+    python_version = python_version
+  )
   message("OS: ", rappdirs::app_dir()$os)
   message("ormr_folder_name: ", ormr_folder_name)
   if (ormr::does_conda_env_exists(ormr_folder_name = ormr_folder_name)) {

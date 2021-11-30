@@ -8,6 +8,7 @@ run_python_script_with_args(
   ormr_folder_name,
   python_script_path,
   args = c(),
+  python_version = "3.6",
   verbose = FALSE
 )
 }

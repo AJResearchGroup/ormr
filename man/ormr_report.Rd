@@ -4,7 +4,7 @@
 \alias{ormr_report}
 \title{Create a \code{ormr} report, to be used when reporting bugs}
 \usage{
-ormr_report(ormr_folder_name)
+ormr_report(ormr_folder_name, python_version = "3.6")
 }
 \arguments{
 \item{ormr_folder_name}{name of the folder where \code{ormr}

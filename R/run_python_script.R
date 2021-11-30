@@ -16,13 +16,13 @@
 #' @export
 run_python_script <- function(
   ormr_folder_name,
-  python_script_path
+  python_script_path,
+  python_version = "3.6" # From https://stackoverflow.com/a/69978354
 ) {
-  reticulate::use_condaenv(condaenv = ormr_folder_name)
-  python_path <- ormr::get_python_binary_path(
-    ormr_folder_name = ormr_folder_name
+  ormr::create_and_activate_conda_env(
+    ormr_folder_name = ormr_folder_name,
+    python_version = python_version
   )
-  reticulate::use_python(python = python_path, required = TRUE)
   output <- reticulate::py_capture_output(
     reticulate::py_run_file(
       file = python_script_path
