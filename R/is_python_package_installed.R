@@ -23,10 +23,14 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 is_python_package_installed <- function(
-  ormr_folder_name,
-  package_name
+  package_name,
+  ormr_folder_name = get_default_ormr_folder_name(),
+  python_version = get_default_python_version(),
+  verbose = FALSE
 ) {
   package_name %in% ormr::get_installed_python_packages(
-    ormr_folder_name = ormr_folder_name
+    ormr_folder_name = ormr_folder_name,
+    python_version = python_version,
+    verbose = verbose
   )$package
 }

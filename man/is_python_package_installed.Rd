@@ -4,13 +4,22 @@
 \alias{is_python_package_installed}
 \title{Determine if a Python package is installed}
 \usage{
-is_python_package_installed(ormr_folder_name, package_name)
+is_python_package_installed(
+  package_name,
+  ormr_folder_name = get_default_ormr_folder_name(),
+  python_version = get_default_python_version(),
+  verbose = FALSE
+)
 }
 \arguments{
+\item{package_name}{the Python package's name}
+
 \item{ormr_folder_name}{name of the folder where \code{ormr}
 installs all Python environments and packages}
 
-\item{package_name}{the Python package's name}
+\item{verbose}{the verbosity of a function.
+Set to \link{TRUE} for more output.
+Use \link[plinkr]{check_verbose} to detect if this argument is valid.}
 }
 \value{
 nothing
