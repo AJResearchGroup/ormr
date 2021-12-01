@@ -133,7 +133,8 @@ harder to work with.
 
 `ormr` allows to install install Python packages,
 create a Conda environment and run Python scripts
-in any folder easily. Such as a system folder of a Singularity container.
+in any folder easily, for example,
+in a system folder (`/opt/ormr`) of a Singularity container.
 
 ## Why not just use `reticulate`?
 
