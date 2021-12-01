@@ -44,6 +44,11 @@ jobs:
         run: lintr::lint_package()
         shell: Rscript {0}
 
+      - name: fix LaTeX errors when creating PDF version, from https://stackoverflow.com/a/29277121
+        run: |
+          which texi2dvi
+          cd /usr/local/bin; ln -s /usr/bin/texi2dvi
+
       - name: Goodpractice
         run: Rscript -e 'goodpractice::gp()'
 
