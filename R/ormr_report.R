@@ -16,43 +16,28 @@ ormr_report <- function(
   )
   message("OS: ", rappdirs::app_dir()$os)
   message("ormr_folder_name: ", ormr_folder_name)
-  if (ormr::does_conda_env_exists(ormr_folder_name = ormr_folder_name)) {
-    message("Conda environment exists: yes")
-  } else {
-    message("Conda environment exists: no")
-  }
-  if (ormr::does_conda_env_exists(ormr_folder_name = ormr_folder_name)) {
-    tryCatch(
-      message(
-        paste0(
-          "Installed Python packages: \n",
-          knitr::kable(
-            ormr::get_installed_python_packages(
-              ormr_folder_name = ormr_folder_name
-            )
-          ),
-          collapse = " \n"
+
+  # Eager loading :-)
+  testthat::expect_true(
+    ormr::does_conda_env_exists(
+      ormr_folder_name = ormr_folder_name,
+      verbose = verbose
+    )
+  )
+  message("Conda environment exists: yes")
+  message(
+    paste0(
+      "Installed Python packages: \n",
+      knitr::kable(
+        ormr::get_installed_python_packages(
+          ormr_folder_name = ormr_folder_name,
+          python_version = python_version,
+          verbose = verbose
         )
       ),
-      error = function(e) {
-        message(
-          "Installed Python packages: N/A (",
-          e$message,
-          ")"
-        )
-      }
+      collapse = " \n"
     )
-  } else {
-    message("Installed Python packages: N/A (need Conda environment to exist)")
-  }
-
-  conda_envs <- reticulate::conda_list()
-  message(
-    "List of Conda environments: \n",
-    " \n",
-    paste0(knitr::kable(conda_envs), collapse = "\n")
   )
-
   message("General session info: \n")
   message(paste0(devtools::session_info(), collapse = "\n"))
 }

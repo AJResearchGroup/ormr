@@ -10,17 +10,10 @@ create_default_conda_env <- function(
   python_version = get_default_python_version(),
   verbose = FALSE
 ) {
-  tryCatch(
-    ormr::create_conda_env(
-      ormr_folder_name = ormr_folder_name,
-      python_version = python_version,
-      verbose = verbose
-    ),
-    error = function(e) {
-      if (verbose) {
-        message(e$message)
-      }
-    }
+  ormr::create_conda_env(
+    ormr_folder_name = ormr_folder_name,
+    python_version = python_version,
+    verbose = verbose
   )
-  ormr_folder_name
+  invisible(ormr_folder_name)
 }

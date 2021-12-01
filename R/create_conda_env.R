@@ -34,26 +34,9 @@ create_conda_env <- function(
     }
     return(invisible(ormr_folder_name))
   }
-  if (verbose) {
-    message("No Conda environment found at ", ormr_folder_name)
-    message("Creating Conda environment at ", ormr_folder_name)
-  }
-  tryCatch(
-    reticulate::conda_create(
-      envname = ormr_folder_name,
-      python_version = python_version
-    ),
-    error = function(e) {
-      if (verbose) {
-        message(
-          "Conda environment is already created at ", ormr_folder_name, " \n",
-          "Tip: probably this is fine: ",
-          "it means that the Conda environment already exists :-) \n",
-          " \n",
-          "Error: ", e$message
-        )
-      }
-    }
+  reticulate::conda_create(
+    envname = ormr_folder_name,
+    python_version = python_version
   )
   invisible(ormr_folder_name)
 }
