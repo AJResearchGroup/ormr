@@ -26,7 +26,9 @@ Use \link[plinkr]{check_verbose} to detect if this argument is valid.}
 Create a \code{ormr} report, to be used when reporting bugs
 }
 \examples{
-ormr_report(ormr_folder_name = tempfile())
+if (!plinkr::is_on_ci()) {
+  ormr_report()
+}
 }
 \author{
 Richèl J.C. Bilderbeek
