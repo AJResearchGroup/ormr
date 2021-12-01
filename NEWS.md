@@ -2,7 +2,7 @@
 
 Newest versions at top.
 
-## `ormr` v0.6.1 (unreleased)
+## `ormr` v0.6.1 (2021-12-01)
 
 ### NEW FEATURES
 
@@ -10,7 +10,8 @@ Newest versions at top.
 
 ### MINOR IMPROVEMENTS
 
- * None
+ * Improve doc
+ * 100% code coverage
 
 ### BUG FIXES
 

@@ -6,8 +6,8 @@ Authors@R: c(
 Description: Python is useful.
     Installing Python to a custom location is useful.
     Doing so using the reticulate R package is painful.
-    This package allows to work with Python installed
-    at a custom location easily.
+    This package makes it trivially easy to to work 
+    with Python installed at a custom location.
 License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
