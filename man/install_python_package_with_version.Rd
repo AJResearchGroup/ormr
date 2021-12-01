@@ -36,14 +36,12 @@ nothing
 Install a Python package with a certain version
 }
 \examples{
-install_python_package_with_version(
-  package_name = "scipy",
-  package_version = "1.5.3"
-)
-install_python_package_with_version(
-  package_name = "scipy",
-  package_version = "1.5.2"
-)
+if (!plinkr::is_on_ci()) {
+  install_python_package_with_version(
+    package_name = "scipy",
+    package_version = "1.5.3"
+  )
+}
 }
 \author{
 Richèl J.C. Bilderbeek

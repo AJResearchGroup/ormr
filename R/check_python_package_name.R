@@ -5,7 +5,9 @@
 #' @inheritParams default_params_doc
 #' @return Nothing
 #' @examples
-#' check_python_package_name("scipy")
+#' if (!plinkr::is_on_ci()) {
+#'   check_python_package_name("scipy")
+#' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
 check_python_package_name <- function(package_name) {

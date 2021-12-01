@@ -30,7 +30,9 @@ Creates and activates the Conda environment.
 If the Conda environment already exists, nothing new will happen
 }
 \examples{
-create_and_activate_conda_env()
+if (!plinkr::is_on_ci()) {
+  create_and_activate_conda_env()
+}
 }
 \author{
 Richèl J.C. Bilderbeek

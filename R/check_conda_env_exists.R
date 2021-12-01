@@ -5,8 +5,10 @@
 #' @inheritParams default_params_doc
 #' @return Nothing
 #' @examples
-#' if (does_conda_env_exists()) {
-#'   check_conda_env_exists()
+#' if (!plinkr::is_on_ci()) {
+#'   if (does_conda_env_exists()) {
+#'     check_conda_env_exists()
+#'   }
 #' }
 #' @author Richèl J.C. Bilderbeek
 #' @export

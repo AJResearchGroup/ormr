@@ -18,8 +18,10 @@ Check if the Conda environment exists
 Will \link{stop} if not
 }
 \examples{
-if (does_conda_env_exists()) {
-  check_conda_env_exists()
+if (!plinkr::is_on_ci()) {
+  if (does_conda_env_exists()) {
+    check_conda_env_exists()
+  }
 }
 }
 \author{

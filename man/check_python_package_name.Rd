@@ -17,7 +17,9 @@ Check if the Python package name is valid
 Will \link{stop} if not
 }
 \examples{
-check_python_package_name("scipy")
+if (!plinkr::is_on_ci()) {
+  check_python_package_name("scipy")
+}
 }
 \author{
 Richèl J.C. Bilderbeek

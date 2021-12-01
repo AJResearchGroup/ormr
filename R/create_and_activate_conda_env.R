@@ -5,7 +5,9 @@
 #' @inheritParams default_params_doc
 #' @return Nothing
 #' @examples
-#' create_and_activate_conda_env()
+#' if (!plinkr::is_on_ci()) {
+#'   create_and_activate_conda_env()
+#' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
 create_and_activate_conda_env <- function(
