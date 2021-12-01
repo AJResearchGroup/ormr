@@ -18,7 +18,9 @@ Check if the Conda environment exists
 Will \link{stop} if not
 }
 \examples{
-check_conda_env_exists()
+if (does_conda_env_exists()) {
+  check_conda_env_exists()
+}
 }
 \author{
 Richèl J.C. Bilderbeek
