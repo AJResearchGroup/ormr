@@ -10,7 +10,7 @@ Newest versions at top.
 
 ### MINOR IMPROVEMENTS
 
- * None
+ * Implement `goodpractice` feedback
 
 ### BUG FIXES
 
