@@ -24,14 +24,6 @@ From: richelbilderbeek/default/plinkr:0.17.2.1
 exec R --vanilla --silent --no-echo "$@"
 
 %test
-    echo "**************"
-    echo "Show me '/opt'"
-    echo "**************"
-    ls /opt
-    echo "*******************"
-    echo "Show me '/opt/ormr'"
-    echo "*******************"
-    ls /opt/ormr
     echo "***********"
     echo "Show plinkr"
     echo "***********"
@@ -74,5 +66,5 @@ ormr_report(ormr_folder_name = "/opt/ormr")
 
     URL https://github.com/richelbilderbeek/ormr
 
-    VERSION 0.6.0
+    VERSION 0.6.2
 
