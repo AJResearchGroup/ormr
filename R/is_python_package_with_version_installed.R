@@ -30,12 +30,17 @@
 #' @author Richèl J.C. Bilderbeek
 #' @export
 is_python_package_with_version_installed <- function( # nolint indeed a long function name
-  ormr_folder_name,
   package_name,
-  package_version
+  package_version,
+  ormr_folder_name = get_default_ormr_folder_name(),
+  python_version = get_default_python_version(),
+  verbose = FALSE
 ) {
+  # 'get_installed_python_packages' will call 'create_and_activate_conda_env'
   t <- ormr::get_installed_python_packages(
-    ormr_folder_name = ormr_folder_name
+    ormr_folder_name = ormr_folder_name,
+    python_version = python_version,
+    verbose = verbose
   )
   row_index <- which(package_name == t$package)
   if (length(row_index) == 0) return(FALSE)

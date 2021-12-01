@@ -5,19 +5,29 @@
 \title{Determine if a Python package with the right version is installed}
 \usage{
 is_python_package_with_version_installed(
-  ormr_folder_name,
   package_name,
-  package_version
+  package_version,
+  ormr_folder_name = get_default_ormr_folder_name(),
+  python_version = get_default_python_version(),
+  verbose = FALSE
 )
 }
 \arguments{
-\item{ormr_folder_name}{name of the folder where \code{ormr}
-installs all Python environments and packages}
-
 \item{package_name}{the name of one Python package}
 
 \item{package_version}{a Python package's version, e.g.
 \verb{==3.1}, or \verb{<=2.7.1} or \verb{>=42}}
+
+\item{ormr_folder_name}{name of the folder where \code{ormr}
+installs all Python environments and packages}
+
+\item{python_version}{the version of Python used.
+Use \link{get_default_python_version} to get
+the default Python version.}
+
+\item{verbose}{the verbosity of a function.
+Set to \link{TRUE} for more output.
+Use \link[plinkr]{check_verbose} to detect if this argument is valid.}
 }
 \value{
 nothing
