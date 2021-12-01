@@ -11,6 +11,10 @@ Newest versions at top.
 ### MINOR IMPROVEMENTS
 
  * Implement `goodpractice` feedback
+ * 'install_python_package_with_version' 
+   and 'is_python_package_with_version_installed' can use a Python version 
+   and be verbose
+ * Run examples in documentation on CI only
 
 ### BUG FIXES
 
