@@ -43,3 +43,6 @@ jobs:
         run: lintr::lint_package()
         shell: Rscript {0}
 
+      - name: Goodpractice
+        run: Rscript -e 'goodpractice::gp()'
+
