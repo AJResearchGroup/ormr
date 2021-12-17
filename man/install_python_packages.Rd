@@ -6,6 +6,7 @@
 \usage{
 install_python_packages(
   package_names,
+  channel = "",
   ormr_folder_name = get_default_ormr_folder_name(),
   python_version = get_default_python_version(),
   verbose = FALSE
@@ -13,6 +14,9 @@ install_python_packages(
 }
 \arguments{
 \item{package_names}{the names of one or more Python packages}
+
+\item{channel}{the channel to install Python packages from,
+e.g. \code{bioconda}}
 
 \item{ormr_folder_name}{name of the folder where \code{ormr}
 installs all Python environments and packages}

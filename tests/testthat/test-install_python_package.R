@@ -23,6 +23,39 @@ test_that("install scipy", {
   )
 })
 
+test_that("install mhcnuggets", {
+
+  package_name <- "mhcnuggets"
+  ormr_folder_name <- create_default_conda_env()
+
+  # Package may already be installed
+  is_python_package_installed(
+    ormr_folder_name = ormr_folder_name,
+    package_name = package_name
+  )
+
+  expect_error(
+    install_python_package(
+      ormr_folder_name = ormr_folder_name,
+      package_name = package_name
+    )
+  )
+  expect_silent(
+    install_python_package(
+      ormr_folder_name = ormr_folder_name,
+      package_name = package_name,
+      channel = "bioconda"
+    )
+  )
+
+  expect_true(
+    is_python_package_installed(
+      ormr_folder_name = ormr_folder_name,
+      package_name = package_name
+    )
+  )
+})
+
 test_that("detect package names with version range", {
   ormr_folder_name <- create_default_conda_env()
   expect_error(

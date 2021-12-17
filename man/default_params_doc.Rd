@@ -7,6 +7,7 @@ documentation.}
 \usage{
 default_params_doc(
   args,
+  channel,
   ormr_folder_name,
   package_name,
   package_names,
@@ -18,6 +19,9 @@ default_params_doc(
 }
 \arguments{
 \item{args}{arguments to a script, for example \code{--help}}
+
+\item{channel}{the channel to install Python packages from,
+e.g. \code{bioconda}}
 
 \item{ormr_folder_name}{name of the folder where \code{ormr}
 installs all Python environments and packages}

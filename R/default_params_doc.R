@@ -2,6 +2,8 @@
 #' documentation.
 #'
 #' @param args arguments to a script, for example `--help`
+#' @param channel the channel to install Python packages from,
+#' e.g. `bioconda`
 #' @param ormr_folder_name name of the folder where `ormr`
 #' installs all Python environments and packages
 #' @param package_name the name of one Python package
@@ -21,6 +23,7 @@
 #'   functions to find the documentation parameters
 default_params_doc <- function(
   args,
+  channel,
   ormr_folder_name,
   package_name,
   package_names,

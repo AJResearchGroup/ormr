@@ -11,6 +11,7 @@
 #' @export
 install_python_packages <- function(
   package_names,
+  channel = "",
   ormr_folder_name = get_default_ormr_folder_name(),
   python_version = get_default_python_version(),
   verbose = FALSE
@@ -22,7 +23,8 @@ install_python_packages <- function(
   ormr::check_conda_env_exists(ormr_folder_name = ormr_folder_name)
   reticulate::conda_install(
     packages = package_names,
-    envname = ormr_folder_name
+    envname = ormr_folder_name,
+    channel = channel
   )
   invisible(NULL)
 }

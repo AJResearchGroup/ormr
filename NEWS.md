@@ -15,6 +15,8 @@ Newest versions at top.
    and 'is_python_package_with_version_installed' can use a Python version 
    and be verbose
  * Run examples in documentation on CI only
+ * Can `install_python_package` and `install_python_packages` with the
+   specification of a channel
 
 ### BUG FIXES
 
