@@ -7,7 +7,7 @@ test_that("use", {
   expect_false(
     is_python_package_installed(
       ormr_folder_name = ormr_folder_name,
-      package_name = "tensorflow"
+      package_name = "last"
     )
   )
 })
