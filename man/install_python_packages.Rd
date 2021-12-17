@@ -6,7 +6,7 @@
 \usage{
 install_python_packages(
   package_names,
-  channel = "",
+  channel = character(),
   ormr_folder_name = get_default_ormr_folder_name(),
   python_version = get_default_python_version(),
   verbose = FALSE
