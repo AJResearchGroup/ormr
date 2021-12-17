@@ -33,13 +33,6 @@ test_that("install mhcnuggets", {
     ormr_folder_name = ormr_folder_name,
     package_name = package_name
   )
-
-  expect_error(
-    install_python_package(
-      ormr_folder_name = ormr_folder_name,
-      package_name = package_name
-    )
-  )
   expect_silent(
     install_python_package(
       ormr_folder_name = ormr_folder_name,

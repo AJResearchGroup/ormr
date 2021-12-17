@@ -1,11 +1,11 @@
-test_that("use, tensorflow is not installed", {
+test_that("use, 'last' is not installed", {
   ormr_folder_name <- create_default_conda_env()
   t <- get_installed_python_packages(ormr_folder_name = ormr_folder_name)
-  expect_equal(sum(t$package == "tensorflow"), 0)
+  expect_equal(sum(t$package == "last"), 0)
   expect_false(
     is_python_package_with_version_installed(
       ormr_folder_name = ormr_folder_name,
-      package_name = "tensorflow",
+      package_name = "last",
       package_version = "==1.0.0"
     )
   )
