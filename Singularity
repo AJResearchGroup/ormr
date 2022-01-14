@@ -1,5 +1,5 @@
 Bootstrap: library
-From: richelbilderbeek/default/plinkr:0.18.0.2
+From: richelbilderbeek/default/plinkr:v0.18.0.2
 
 %post
     sed -i 's/$/ universe/' /etc/apt/sources.list
