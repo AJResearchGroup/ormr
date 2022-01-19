@@ -1,5 +1,5 @@
 Bootstrap: library
-From: richelbilderbeek/default/plinkr:v0.18.0.2
+From: richelbilderbeek/default/plinkr:0.18.0.2
 
 %post
     sed -i 's/$/ universe/' /etc/apt/sources.list
@@ -7,17 +7,29 @@ From: richelbilderbeek/default/plinkr:v0.18.0.2
     apt-get -y install python3 wget
     apt-get -y clean
 
-    # 'ormr' needs this
+    echo "********************************"
+    echo "Install conda: 'ormr' needs this"
+    echo "********************************"
     wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
     bash Miniconda3-latest-Linux-x86_64.sh -b -p miniconda
     export PATH=/miniconda/bin:$PATH
     rm Miniconda3-latest-Linux-x86_64.sh
     conda update conda
 
-    Rscript -e 'install.packages("semver")'
-    Rscript -e 'install.packages("reticulate")'
+    echo "******************"
+    echo "Install R packages"
+    echo "******************"
+    Rscript -e 'install.packages(c("remotes", "reticulate", "semver"))'
     Rscript -e 'remotes::install_github("richelbilderbeek/ormr")'
+
+    echo "***********************"
+    echo "Install Python packages"
+    echo "***********************"
     Rscript -e 'ormr::install_python_package(ormr_folder_name = "/opt/ormr", package_name = "scipy")'
+
+    echo "******"
+    echo "Report"
+    echo "******"
     Rscript -e 'ormr::ormr_report(ormr_folder_name = "/opt/ormr")'
 
 %runscript
