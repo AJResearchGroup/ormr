@@ -27,7 +27,7 @@ create_and_activate_conda_env <- function(
     error = function(e) {
       if (verbose) {
         message(
-          "'create_conda_env' failed, which may be harmless,",
+          "'create_conda_env' failed, which may be harmless, ",
           "e.g. when creating a Conda env in a read-only environment"
         )
       }
@@ -41,6 +41,14 @@ create_and_activate_conda_env <- function(
     )
   }
   reticulate::use_condaenv(condaenv = ormr_folder_name)
+
+  if (verbose) {
+    message(
+      "Obtaining the Python binary path in folder ",
+      ormr_folder_name
+    )
+  }
+
   python_path <- ormr::get_python_binary_path(
     ormr_folder_name = ormr_folder_name
   )

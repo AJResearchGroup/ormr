@@ -36,6 +36,10 @@ From: richelbilderbeek/default/plinkr:0.18.0.2
 exec R --vanilla --silent --no-echo "$@"
 
 %test
+    echo "*******************************"
+    echo "Show list of Conda environments"
+    echo "*******************************"
+    conda-env list
     echo "***********"
     echo "Show plinkr"
     echo "***********"
