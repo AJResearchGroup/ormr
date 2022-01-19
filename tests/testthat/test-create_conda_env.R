@@ -21,7 +21,7 @@ test_that("installing to /root", {
       ormr_folder_name = "/root",
       verbose = TRUE
     ),
-    "Error 1 occurred creating conda environment /root"
+    "Error creating conda environment ./root"
   )
 })
 
