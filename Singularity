@@ -20,7 +20,8 @@ From: richelbilderbeek/default/plinkr:0.18.0.2
     echo "Install R packages"
     echo "******************"
     Rscript -e 'install.packages(c("remotes", "reticulate", "semver"))'
-    Rscript -e 'remotes::install_github("richelbilderbeek/ormr")'
+    git_branch=$(git branch --show-current)
+    Rscript -e 'remotes::install_github("richelbilderbeek/ormr", branch = "$git_branch")'
 
     echo "***********************"
     echo "Install Python packages"
