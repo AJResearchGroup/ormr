@@ -12,7 +12,7 @@ does_conda_env_exists <- function(
   ) {
   result <- FALSE
   tryCatch({
-    ormr::check_conda_env_exists(ormr_folder_name = ormr_folder_name)
+    ormr::check_conda_env_exists(ormr_folder_name = ormr_folder_nam)
     result <- TRUE
   },
   error = function(e) {

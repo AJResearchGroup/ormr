@@ -15,6 +15,16 @@ test_that("creating env twice is harmless", {
   )
 })
 
+test_that("installing to /root", {
+  expect_error(
+    create_conda_env(
+      ormr_folder_name = "/root",
+      verbose = TRUE
+    ),
+    "Error 1 occurred creating conda environment /root"
+  )
+})
+
 test_that("reticulate-only reprex for #1089", {
   expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
 

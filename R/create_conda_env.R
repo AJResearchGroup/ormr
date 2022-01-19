@@ -28,11 +28,20 @@ create_conda_env <- function(
   python_version = get_default_python_version(),
   verbose = FALSE
 ) {
-  if (ormr::does_conda_env_exists(ormr_folder_name = ormr_folder_name)) {
+  if (ormr::does_conda_env_exists(
+    ormr_folder_name = ormr_folder_name,
+    verbose = verbose)
+  ) {
     if (verbose) {
       message("Conda environment is already created at ", ormr_folder_name)
     }
     return(invisible(ormr_folder_name))
+  }
+  if (verbose) {
+    message(
+      "Creating a new Conda environment at ", ormr_folder_name,
+      " with Python version ", python_version
+    )
   }
   reticulate::conda_create(
     envname = ormr_folder_name,
