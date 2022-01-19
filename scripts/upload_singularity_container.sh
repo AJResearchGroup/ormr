@@ -14,9 +14,9 @@ echo 'singularity remote login'
 
 # Sign container
 echo "To sign the container, paste your passphrase"
-singularity sign plinkr.sif
+singularity sign ormr.sif
 
 # Upload the latest version
-singularity push plinkr.sif library://richelbilderbeek/default/ormr:0.18.0.2
+singularity push ormr.sif library://richelbilderbeek/default/ormr:0.6.2.1
 
 
