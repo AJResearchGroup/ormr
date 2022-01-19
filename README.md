@@ -20,6 +20,17 @@ more powerful and flexible. `ormr`, however, focuses
 on making it trivially simple to install Python
 packages and run Python scripts.
 
+# Install `ormr`
+
+As `ormr` is developed on the `master` branch, only a release
+is tested to work:
+
+```
+remotes::install_github("richelbilderbeek/ormr", ref = "v0.6.1")
+```
+
+See FAQ why one needs to install a release.
+
 # Examples
 
 `ormr` uses one point of contact, `ormr_folder_name`.
@@ -160,6 +171,16 @@ a package to a certain `ormr_folder_name` ('to do B'), `ormr`
 will create a Conda environment for that ('the setup of A').
 
 This means that no setup code is necessary.
+
+## Why does one need to install a release, instead of just `master`?
+
+The development of `ormr` takes place on the `master` branch.
+Hence, `master` will break regularily.
+A specific release is tested to build correctly.
+
+The reason for this non-traditional workflow, is that the
+Singularity script always installs the `master` branch,
+as it cannot detect the `git` branch is being built by.
 
 ## There is a feature I miss
 
