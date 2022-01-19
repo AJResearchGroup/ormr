@@ -27,9 +27,9 @@ From: richelbilderbeek/default/plinkr:0.18.0.2
     echo "***********************"
     Rscript -e 'ormr::install_python_package(ormr_folder_name = "/opt/ormr", package_name = "scipy")'
 
-    echo "******"
-    echo "Report"
-    echo "******"
+    echo "******************"
+    echo "Report after build"
+    echo "******************"
     Rscript -e 'ormr::ormr_report(ormr_folder_name = "/opt/ormr")'
 
 %runscript
