@@ -23,7 +23,7 @@ test_that("verbose", {
       ormr_folder_name = ormr_folder_name,
       verbose = TRUE
     ),
-    "failed to discover Python binary associated with path"
+    "failed to discover Python binary associated with path|Unable to locate conda environment" # nolint indeed a long line
   )
 
   create_conda_env(ormr_folder_name = ormr_folder_name)
