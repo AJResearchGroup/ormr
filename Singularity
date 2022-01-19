@@ -4,7 +4,7 @@ From: richelbilderbeek/default/plinkr:0.18.0.2
 %post
     sed -i 's/$/ universe/' /etc/apt/sources.list
     apt-get -y update
-    apt-get -y install python3 wget
+    apt-get -y install git python3 wget
     apt-get -y clean
 
     echo "********************************"
@@ -20,8 +20,7 @@ From: richelbilderbeek/default/plinkr:0.18.0.2
     echo "Install R packages"
     echo "******************"
     Rscript -e 'install.packages(c("remotes", "reticulate", "semver"))'
-    git_branch=$(git branch --show-current)
-    Rscript -e 'remotes::install_github("richelbilderbeek/ormr", branch = "$git_branch")'
+    Rscript -e 'remotes::install_github("richelbilderbeek/ormr")'
 
     echo "***********************"
     echo "Install Python packages"
