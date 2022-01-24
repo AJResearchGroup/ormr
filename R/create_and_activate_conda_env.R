@@ -18,20 +18,10 @@ create_and_activate_conda_env <- function(
   if (verbose) {
     message("Create the environment, will check if it already exists")
   }
-  tryCatch(
-    ormr::create_conda_env(
-      ormr_folder_name = ormr_folder_name,
-      python_version = python_version,
-      verbose = verbose
-    ),
-    error = function(e) {
-      if (verbose) {
-        message(
-          "'create_conda_env' failed, which may be harmless, ",
-          "e.g. when creating a Conda env in a read-only environment"
-        )
-      }
-    }
+  ormr::create_conda_env(
+    ormr_folder_name = ormr_folder_name,
+    python_version = python_version,
+    verbose = verbose
   )
 
   if (verbose) {
