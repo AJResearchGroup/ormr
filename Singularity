@@ -22,7 +22,8 @@ From: richelbilderbeek/default/plinkr:0.18.0.2
     Rscript -e 'install.packages(c("remotes", "reticulate", "semver"))'
     Rscript -e 'remotes::install_github("richelbilderbeek/ormr")'
     Rscript -e 'devtools::session_info()'
-    Rscript -e 'paste0(devtools::session_info(), collapse = "\n")'
+    Rscript -e 'ormr::ormr_report(ormr_folder_name = "/opt/ormr")'
+    Rscript -e 'devtools::session_info()'
 
     echo "***********************"
     echo "Install Python packages"
