@@ -28,7 +28,7 @@ test_that("verbose", {
 
   create_conda_env(ormr_folder_name = ormr_folder_name)
 
-  expect_silent(
+  expect_message(
     does_conda_env_exists(
       ormr_folder_name = ormr_folder_name,
       verbose = TRUE
