@@ -224,3 +224,7 @@ After that, the image was modified using KolourPaint and the R logo was added.
 
  * [Find the latest 'ormr' Singularity container](https://cloud.sylabs.io/library/search;query=ormr)
 
+## Links
+
+ * [https://github.com/richelbilderbeek/reticulate_on_singularity](https://github.com/richelbilderbeek/reticulate_on_singularity):
+   demo how to run `reticulate` within a Singularity container, without `ormr`
