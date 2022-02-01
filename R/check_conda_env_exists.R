@@ -23,7 +23,11 @@ check_conda_env_exists <- function(
     )
   }
 
-  reticulate::use_condaenv(condaenv = ormr_folder_name)
+  # For https://github.com/richelbilderbeek/ormr/issues/2
+  try({
+    reticulate::use_condaenv(condaenv = ormr_folder_name)
+  })
+
   if (verbose) {
     message(
       "Before getting the python binary path ",
