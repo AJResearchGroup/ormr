@@ -56,7 +56,7 @@ Pull Requests should follow the same guidelines as 'Submitting code'.
 To get started working on `ormr` do:
 
 ```
-git clone https://github.com/ropensci/ormr
+git clone https://github.com/richelbilderbeek/ormr
 ```
 
 Development is done on the `develop` branch. 
