@@ -4,11 +4,18 @@
 \alias{get_python_binary_path}
 \title{Get the path to the \code{python} binary}
 \usage{
-get_python_binary_path(ormr_folder_name = get_default_ormr_folder_name())
+get_python_binary_path(
+  ormr_folder_name = get_default_ormr_folder_name(),
+  verbose = FALSE
+)
 }
 \arguments{
 \item{ormr_folder_name}{name of the folder where \code{ormr}
 installs all Python environments and packages}
+
+\item{verbose}{the verbosity of a function.
+Set to \link{TRUE} for more output.
+Use \link[plinkr]{check_verbose} to detect if this argument is valid.}
 }
 \value{
 the path to the actve \code{python} binary

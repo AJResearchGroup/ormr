@@ -10,9 +10,18 @@ does_conda_env_exists <- function(
   ormr_folder_name = get_default_ormr_folder_name(),
   verbose = FALSE
   ) {
+  if (verbose) {
+    message(
+      "Start of 'does_conda_env_exists', ",
+      "ormr_folder_name: ", ormr_folder_name
+    )
+  }
   result <- FALSE
   tryCatch({
-    ormr::check_conda_env_exists(ormr_folder_name = ormr_folder_name)
+    ormr::check_conda_env_exists(
+      ormr_folder_name = ormr_folder_name,
+      verbose = verbose
+    )
     result <- TRUE
   },
   error = function(e) {
