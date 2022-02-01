@@ -28,8 +28,7 @@ which is the folder where `ormr` installs the Python environment and packages
 needed:
 
 ```{r get_ormr_folder_name}
-# ormr_folder_name <- get_default_ormr_folder_name()
-ormr_folder_name <- tempfile()
+ormr_folder_name <- get_default_ormr_folder_name()
 ```
 
 Note we use the default `ormr_folder_name`, as this package
