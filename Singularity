@@ -4,7 +4,9 @@ From: richelbilderbeek/default/plinkr:0.18.0.2
 %post
     sed -i 's/$/ universe/' /etc/apt/sources.list
     apt-get -y update
-    apt-get -y install git python3 wget
+
+    # No python3, thanks Pavlin Mitev
+    apt-get -y install git wget python3-pip
     apt-get -y clean
 
     echo "********************************"
