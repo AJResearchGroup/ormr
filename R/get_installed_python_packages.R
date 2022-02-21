@@ -29,8 +29,8 @@ get_installed_python_packages <- function(
     text <- text[stringr::str_detect(text, "You should", negate = TRUE)]
     table <- stringr::str_split_fixed(text, pattern = " ", n = 2)
     installed_python_packages <- tibble::tibble(
-      Package = stringr::str_trim(table[, 1]),
-      Version = stringr::str_trim(table[, 2])
+      package = stringr::str_trim(table[, 1]),
+      version = stringr::str_trim(table[, 2])
     )
   } else {
     ormr::create_and_activate_conda_env(

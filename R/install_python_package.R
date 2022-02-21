@@ -17,16 +17,23 @@ install_python_package <- function(
   verbose = FALSE
 ) {
   ormr::check_python_package_name(package_name = package_name)
-  ormr::create_and_activate_conda_env(
-    ormr_folder_name = ormr_folder_name,
-    python_version = python_version,
-    verbose = verbose
-  )
-  ormr::check_conda_env_exists(ormr_folder_name = ormr_folder_name)
-  reticulate::conda_install(
-    packages = package_name,
-    envname = ormr_folder_name,
-    channel = channel
-  )
+  if (ormr_folder_name == "python3") {
+    system2(
+      command = "python3",
+      args = c("-m", "pip", "install", package_name)
+    )
+  } else {
+    ormr::create_and_activate_conda_env(
+      ormr_folder_name = ormr_folder_name,
+      python_version = python_version,
+      verbose = verbose
+    )
+    ormr::check_conda_env_exists(ormr_folder_name = ormr_folder_name)
+    reticulate::conda_install(
+      packages = package_name,
+      envname = ormr_folder_name,
+      channel = channel
+    )
+  }
   invisible(NULL)
 }
