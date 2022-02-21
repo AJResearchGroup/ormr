@@ -65,10 +65,6 @@ test_that("no conda, produces output", {
   )
 })
 
-
-
-
-
 #
 # Tests that use reticulate only
 #

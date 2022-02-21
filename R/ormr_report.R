@@ -11,22 +11,26 @@ ormr_report <- function(
   python_version = get_default_python_version(),
   verbose = FALSE
 ) {
-  ormr::create_and_activate_conda_env(
-    ormr_folder_name = ormr_folder_name,
-    python_version = python_version,
-    verbose = verbose
-  )
   message("OS: ", rappdirs::app_dir()$os)
   message("ormr_folder_name: ", ormr_folder_name)
-
-  # Eager loading :-)
-  testthat::expect_true(
-    ormr::does_conda_env_exists(
+  if (ormr_folder_name == "python3") {
+    message("Conda environment exists: no")
+  } else {
+    ormr::create_and_activate_conda_env(
       ormr_folder_name = ormr_folder_name,
+      python_version = python_version,
       verbose = verbose
     )
-  )
-  message("Conda environment exists: yes")
+
+    # Eager loading :-)
+    testthat::expect_true(
+      ormr::does_conda_env_exists(
+        ormr_folder_name = ormr_folder_name,
+        verbose = verbose
+      )
+    )
+    message("Conda environment exists: yes")
+  }
   message(
     paste0(
       "Installed Python packages: \n",

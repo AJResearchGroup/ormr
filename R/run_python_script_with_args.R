@@ -23,18 +23,26 @@ run_python_script_with_args <- function(
   python_version = get_default_python_version(),
   verbose = FALSE
 ) {
-  ormr::create_and_activate_conda_env(
-    ormr_folder_name = ormr_folder_name,
-    python_version = python_version
-  )
-  python_path <- ormr::get_python_binary_path(
-    ormr_folder_name = ormr_folder_name
-  )
-  run_args <- c(
-    normalizePath(python_path),
-    python_script_path,
-    args
-  )
+  if (ormr_folder_name == "python3") {
+    run_args <- c(
+      "python3",
+      python_script_path,
+      args
+    )
+  } else {
+    ormr::create_and_activate_conda_env(
+      ormr_folder_name = ormr_folder_name,
+      python_version = python_version
+    )
+    python_path <- ormr::get_python_binary_path(
+      ormr_folder_name = ormr_folder_name
+    )
+    run_args <- c(
+      normalizePath(python_path),
+      python_script_path,
+      args
+    )
+  }
   if (verbose) {
     message(
       "Running: '", paste(run_args, collapse = " "), "'. \n",
