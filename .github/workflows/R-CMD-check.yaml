@@ -39,7 +39,7 @@ jobs:
       - name: Uninstall Conda
         env:
           INSTALL_CONDA: ${{ matrix.install_conda }}
-        run: if [[ "$INSTALL_CONDA" == false ]]; then conda install anaconda-clean; anaconda-clean --yes; fi
+        run: if [[ "$INSTALL_CONDA" == false ]]; then ls ; rm -rf ~/anaconda3 ; fi
 
       - name: Check
         run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
