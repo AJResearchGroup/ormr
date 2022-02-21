@@ -28,7 +28,11 @@ which is the folder where `ormr` installs the Python environment and packages
 needed:
 
 ```{r get_ormr_folder_name}
-ormr_folder_name <- get_default_ormr_folder_name()
+if (is_conda_installed()) {
+  ormr_folder_name <- get_default_ormr_folder_name()
+} else {
+  ormr_folder_name <- "python3"
+}
 ```
 
 Note we use the default `ormr_folder_name`, as this package

@@ -30,17 +30,17 @@ From: richelbilderbeek/default/plinkr:0.18.0.2
     Rscript -e 'remotes::install_github("richelbilderbeek/ormr")'
     Rscript -e 'devtools::session_info()'
 
-
     echo "*******************************************"
     echo "Report before Python packages are installed"
     echo "*******************************************"
-    Rscript -e 'ormr::ormr_report(ormr_folder_name = "/opt/ormr", verbose = TRUE)'
+    # Rscript -e 'ormr::ormr_report(ormr_folder_name = "/opt/ormr", verbose = TRUE)'
+    Rscript -e 'ormr::ormr_report(ormr_folder_name = "python3", verbose = TRUE)'
 
     echo "***********************"
     echo "Install Python packages"
     echo "***********************"
-    #Rscript -e 'ormr::install_python_package(ormr_folder_name = "/opt/ormr", package_name = "scipy")'
-    #Rscript -e 'ormr::install_python_package(ormr_folder_name = "python3", package_name = "scipy")'
+    # Rscript -e 'ormr::install_python_package(ormr_folder_name = "/opt/ormr", package_name = "scipy")'
+    Rscript -e 'ormr::install_python_package(ormr_folder_name = "python3", package_name = "scipy")'
 
     echo "******"
     echo "Report"
@@ -52,14 +52,15 @@ From: richelbilderbeek/default/plinkr:0.18.0.2
 exec R --vanilla --silent --no-echo "$@"
 
 %test
-    echo "*******************************"
-    echo "Show list of Conda environments"
-    echo "*******************************"
-    conda-env list
+    # echo "*******************************"
+    # echo "Show list of Conda environments"
+    # echo "*******************************"
+    # conda-env list
     echo "***********"
     echo "Show plinkr"
     echo "***********"
-    Rscript -e 'plinkr::plinkr_report(plink_optionses = plinkr::create_plink_optionses(plink_folder = "/opt/plinkr"))'
+    # Rscript -e 'plinkr::plinkr_report(plink_optionses = plinkr::create_plink_optionses(plink_folder = "/opt/plinkr"))'
+    Rscript -e 'plinkr::plinkr_report(plink_optionses = plinkr::create_plink_optionses(plink_folder = "python3"))'
     echo "********************************"
     echo "Run 'ormr::ormr_report'"
     echo "********************************"
