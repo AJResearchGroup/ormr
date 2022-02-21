@@ -1,11 +1,13 @@
 library(ormr)
 
-ormr_report(ormr_folder_name = "/opt/ormr")
+ormr_folder_name <- "python3"
+
+ormr_report(ormr_folder_name = ormr_folder_name)
 
 python_script_path <- system.file("extdata", "scipy_example.py", package = "ormr")
 
 ormr::run_python_script(
-  ormr_folder_name = "/opt/ormr",
+  ormr_folder_name = ormr_folder_name,
   python_script_path = python_script_path
 )
 
