@@ -3,8 +3,15 @@ From: richelbilderbeek/default/plinkr:0.18.0.2
 
 %post
     sed -i 's/$/ universe/' /etc/apt/sources.list
-    apt-get -y update
-    apt-get -y install git python3 wget
+
+    apt-get update
+    apt-get upgrade -y
+    apt-get install -y git wget python3-pip
+
+    # python3 -m pip install --upgrade pip
+    # Tip from Pavlin Mitev
+    python3 -m pip install --no-cache-dir --upgrade pip
+
     apt-get -y clean
 
     echo "********************************"
