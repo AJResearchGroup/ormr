@@ -1,11 +1,16 @@
 test_that("minimal use", {
   expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
+  if (!is_conda_installed()) return()
+
   reticulate::use_condaenv(
     condaenv = get_default_ormr_folder_name()
   )
 })
 
 test_that("creating env twice is harmless", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
+  if (!is_conda_installed()) return()
+
   expect_message(
     create_conda_env(
       ormr_folder_name = create_default_conda_env(),
@@ -16,6 +21,9 @@ test_that("creating env twice is harmless", {
 })
 
 test_that("installing to /root", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
+  if (!is_conda_installed()) return()
+
   expect_error(
     create_conda_env(
       ormr_folder_name = "/root",

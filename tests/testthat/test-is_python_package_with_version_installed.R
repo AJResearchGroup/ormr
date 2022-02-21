@@ -1,4 +1,7 @@
 test_that("use, 'last' is not installed", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
+  if (!is_conda_installed()) return()
+
   ormr_folder_name <- create_default_conda_env()
   t <- get_installed_python_packages(ormr_folder_name = ormr_folder_name)
   expect_equal(sum(t$package == "last"), 0)
@@ -12,6 +15,9 @@ test_that("use, 'last' is not installed", {
 })
 
 test_that("use, check versions", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
+  if (!is_conda_installed()) return()
+
   ormr_folder_name <- create_default_conda_env()
   t <- get_installed_python_packages(ormr_folder_name = ormr_folder_name)
 

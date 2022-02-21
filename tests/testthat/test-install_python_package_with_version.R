@@ -1,4 +1,7 @@
 test_that("install pip", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
+  if (!is_conda_installed()) return()
+
   package_name <- "pip"
   ormr_folder_name <- create_default_conda_env()
 
@@ -58,6 +61,9 @@ test_that("install pip", {
 })
 
 test_that("detect package names with version range", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
+  if (!is_conda_installed()) return()
+
   expect_error(
     install_python_package_with_version(
       ormr_folder_name = create_default_conda_env(),

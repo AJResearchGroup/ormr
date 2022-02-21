@@ -10,8 +10,9 @@ get_python_binary_path(
 )
 }
 \arguments{
-\item{ormr_folder_name}{name of the folder where \code{ormr}
-installs all Python environments and packages}
+\item{ormr_folder_name}{can be either \code{python3}
+or the name of the folder where \code{ormr}
+installs all Python environments and packages.}
 
 \item{verbose}{the verbosity of a function.
 Set to \link{TRUE} for more output.

@@ -11,8 +11,9 @@ create_and_activate_conda_env(
 )
 }
 \arguments{
-\item{ormr_folder_name}{name of the folder where \code{ormr}
-installs all Python environments and packages}
+\item{ormr_folder_name}{can be either \code{python3}
+or the name of the folder where \code{ormr}
+installs all Python environments and packages.}
 
 \item{python_version}{the version of Python used.
 Use \link{get_default_python_version} to get

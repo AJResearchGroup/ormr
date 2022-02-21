@@ -23,8 +23,9 @@ default_params_doc(
 \item{channel}{the channel to install Python packages from,
 e.g. \code{bioconda}}
 
-\item{ormr_folder_name}{name of the folder where \code{ormr}
-installs all Python environments and packages}
+\item{ormr_folder_name}{can be either \code{python3}
+or the name of the folder where \code{ormr}
+installs all Python environments and packages.}
 
 \item{package_name}{the name of one Python package}
 
