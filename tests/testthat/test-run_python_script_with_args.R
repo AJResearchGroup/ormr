@@ -1,4 +1,7 @@
 test_that("calling scrip without args produces output", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
+  if (!is_conda_installed()) return()
+
   ormr_folder_name <- create_default_conda_env()
 
   python_script_path <- system.file(
@@ -21,6 +24,9 @@ test_that("calling scrip without args produces output", {
 })
 
 test_that("verbose produces output", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
+  if (!is_conda_installed()) return()
+
   ormr_folder_name <- create_default_conda_env()
 
   python_script_path <- system.file(
@@ -39,6 +45,9 @@ test_that("verbose produces output", {
 })
 
 test_that("calling scrip with args produces output", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
+  if (!is_conda_installed()) return()
+
   ormr_folder_name <- create_default_conda_env()
 
   python_script_path <- system.file(

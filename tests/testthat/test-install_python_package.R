@@ -1,4 +1,6 @@
 test_that("install scipy", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
+  if (!is_conda_installed()) return()
 
   package_name <- "scipy"
   ormr_folder_name <- create_default_conda_env()
@@ -24,6 +26,8 @@ test_that("install scipy", {
 })
 
 test_that("install mhcnuggets", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
+  if (!is_conda_installed()) return()
 
   package_name <- "mhcnuggets"
   ormr_folder_name <- create_default_conda_env()
@@ -50,6 +54,9 @@ test_that("install mhcnuggets", {
 })
 
 test_that("detect package names with version range", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
+  if (!is_conda_installed()) return()
+
   ormr_folder_name <- create_default_conda_env()
   expect_error(
     install_python_package(

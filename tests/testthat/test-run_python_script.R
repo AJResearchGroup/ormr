@@ -1,4 +1,9 @@
-test_that("produces output", {
+#
+# Tests that use conda
+#
+test_that("use conda, produces output", {
+  if (!is_conda_installed()) return()
+
   ormr_folder_name <- create_default_conda_env()
 
   python_script_path <- system.file(
@@ -16,7 +21,10 @@ test_that("produces output", {
   )
 })
 
-test_that("calling scrip without args produces output", {
+
+test_that("use conda, calling scrip without args produces output", {
+  if (!is_conda_installed()) return()
+
   ormr_folder_name <- create_default_conda_env()
 
   python_script_path <- system.file(
@@ -35,6 +43,29 @@ test_that("calling scrip without args produces output", {
     )
   )
 })
+
+#
+# Tests that do not use conda, but use python3 instead
+#
+test_that("no conda, produces output", {
+  ormr_folder_name <- "python3"
+
+  python_script_path <- system.file(
+    "extdata", "hello_world.py", package = "ormr"
+  )
+  expect_true(file.exists(python_script_path))
+
+  output <- run_python_script(
+    ormr_folder_name = ormr_folder_name,
+    python_script_path = python_script_path
+  )
+  expect_equal(
+    output,
+    "Hello world"
+  )
+})
+
+
 
 
 

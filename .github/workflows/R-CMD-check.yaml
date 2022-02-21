@@ -7,6 +7,12 @@ name: R-CMD-check
 jobs:
   R-CMD-check:
 
+    strategy:
+      fail-fast: false
+      matrix:
+        install_conda: [true, false]
+        os: [ubuntu-latest]
+
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -29,6 +35,11 @@ jobs:
           remotes::install_cran("lintr")
           remotes::install_cran("goodpractice")
         shell: Rscript {0}
+
+      - name: Uninstall Conda
+        env:
+          INSTALL_CONDA: ${{ matrix.install_conda }}
+        run: if [[ "$INSTALL_CONDA" == false ]]; then conda install anaconda-clean; anaconda-clean --yes; fi
 
       - name: Check
         run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")

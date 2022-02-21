@@ -18,8 +18,9 @@ is_python_package_with_version_installed(
 \item{package_version}{a Python package's version, e.g.
 \verb{==3.1}, or \verb{<=2.7.1} or \verb{>=42}}
 
-\item{ormr_folder_name}{name of the folder where \code{ormr}
-installs all Python environments and packages}
+\item{ormr_folder_name}{can be either \code{python3}
+or the name of the folder where \code{ormr}
+installs all Python environments and packages.}
 
 \item{python_version}{the version of Python used.
 Use \link{get_default_python_version} to get

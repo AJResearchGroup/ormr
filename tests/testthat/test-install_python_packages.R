@@ -1,4 +1,7 @@
 test_that("install scipy", {
+  expect_equal(1 + 1, 2) # Prevents testthat warning for empty test
+  if (!is_conda_installed()) return()
+
   package_names <- "scipy"
   ormr_folder_name <- create_default_conda_env()
 

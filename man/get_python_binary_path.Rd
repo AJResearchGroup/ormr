@@ -7,8 +7,9 @@
 get_python_binary_path(ormr_folder_name = get_default_ormr_folder_name())
 }
 \arguments{
-\item{ormr_folder_name}{name of the folder where \code{ormr}
-installs all Python environments and packages}
+\item{ormr_folder_name}{can be either \code{python3}
+or the name of the folder where \code{ormr}
+installs all Python environments and packages.}
 }
 \value{
 the path to the actve \code{python} binary

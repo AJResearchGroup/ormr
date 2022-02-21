@@ -4,8 +4,9 @@
 #' @param args arguments to a script, for example `--help`
 #' @param channel the channel to install Python packages from,
 #' e.g. `bioconda`
-#' @param ormr_folder_name name of the folder where `ormr`
-#' installs all Python environments and packages
+#' @param ormr_folder_name can be either `python3`
+#' or the name of the folder where `ormr`
+#' installs all Python environments and packages.
 #' @param package_name the name of one Python package
 #' @param package_names the names of one or more Python packages
 #' @param package_version a Python package's version, e.g.

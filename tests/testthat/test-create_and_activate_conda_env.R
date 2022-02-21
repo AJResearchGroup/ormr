@@ -1,4 +1,5 @@
 test_that("use", {
+  if (!is_conda_installed()) return()
   suppressMessages(
     expect_message(
       create_and_activate_conda_env(verbose = TRUE),
