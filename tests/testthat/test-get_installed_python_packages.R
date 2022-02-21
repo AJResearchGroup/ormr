@@ -13,7 +13,9 @@ test_that("conda, eager", {
   if (!is_conda_installed()) return()
 
   # Creates a Conda env if needed
-  get_installed_python_packages(ormr_folder_name = tempfile())
+  t <- get_installed_python_packages(ormr_folder_name = tempfile())
+  expect_equal(2, ncol(t))
+  expect_equal(names(t), c("package", "version"))
 })
 
 test_that("no conda, minimal use", {
@@ -21,5 +23,5 @@ test_that("no conda, minimal use", {
     ormr_folder_name = "python3"
   )
   expect_equal(2, ncol(t))
-  expect_equal(names(t), c("Package", "Version"))
+  expect_equal(names(t), c("package", "version"))
 })
