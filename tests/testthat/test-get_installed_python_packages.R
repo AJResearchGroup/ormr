@@ -14,8 +14,9 @@ test_that("conda, eager", {
 
   # Creates a Conda env if needed
   t <- get_installed_python_packages(ormr_folder_name = tempfile())
-  expect_equal(2, ncol(t))
-  expect_equal(names(t), c("package", "version"))
+  expect_equal(4, ncol(t))
+  expect_equal(names(t), c("package", "version", "requirement", "channel"))
+
 })
 
 test_that("no conda, minimal use", {
