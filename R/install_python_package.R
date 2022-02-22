@@ -4,9 +4,20 @@
 #' @seealso use \link{install_python_packages} to install one
 #' or more Python packages
 #' @examples
-#' install_python_package(
-#'   package_name = "scipy"
-#' )
+#' # Use local python3
+#' if (plinkr::is_on_ci() && is_conda_installed()) {
+#'   install_python_package(
+#'     package_name = "scipy",
+#'     ormr_folder_name = "python3"
+#'   )
+#' }
+#'
+#' # Use conda
+#' if (plinkr::is_on_ci() && is_conda_installed()) {
+#'   install_python_package(
+#'     package_name = "scipy"
+#'   )
+#' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
 install_python_package <- function(

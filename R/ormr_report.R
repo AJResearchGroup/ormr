@@ -1,7 +1,11 @@
 #' Create a `ormr` report, to be used when reporting bugs
 #' @inheritParams default_params_doc
 #' @examples
-#' if (!plinkr::is_on_ci()) {
+#' # Use local python
+#' ormr_report(ormr_folder_name = "python3")
+#'
+#' # 'ormr' is eager and will install Conda if needed
+#' if (plinkr::is_on_ci() && is_conda_installed()) {
 #'   ormr_report()
 #' }
 #' @author Richèl J.C. Bilderbeek

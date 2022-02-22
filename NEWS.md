@@ -15,6 +15,7 @@ Newest versions at top.
 ### BUG FIXES
 
  * 'install_python_package_with_version' can now install Python packages using 'python3'
+ * Documentation examples are only run on a continuous integration server
 
 ### DEPRECATED AND DEFUNCT
 

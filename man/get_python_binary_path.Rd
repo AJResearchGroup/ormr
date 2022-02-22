@@ -25,7 +25,14 @@ the path to the actve \code{python} binary
 Get the path to the \code{python} binary
 }
 \examples{
-get_python_binary_path()
+# local Python version
+# just returns 'python3'
+get_python_binary_path(ormr_folder_name = "python3")
+
+# Conda Python version
+if (is_conda_installed()) {
+  get_python_binary_path()
+}
 }
 \author{
 Richèl J.C. Bilderbeek

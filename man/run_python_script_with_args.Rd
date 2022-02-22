@@ -36,16 +36,24 @@ The output of the Python script
 Run a Python script with command-line arguments
 }
 \examples{
-ormr_folder_name <- create_default_conda_env()
+if (plinkr::is_on_ci()) {
 
-python_script_path <- system.file(
-  "extdata", "show_args.py", package = "ormr"
-)
-run_python_script_with_args(
-  ormr_folder_name = ormr_folder_name,
-  python_script_path = python_script_path,
-  args = c("Hello", "world")
-)
+  if (is_conda_installed()) {
+    ormr_folder_name <- create_default_conda_env()
+  } else {
+    # Use local python
+    ormr_folder_name <- "python3"
+  }
+
+  python_script_path <- system.file(
+    "extdata", "show_args.py", package = "ormr"
+  )
+  run_python_script_with_args(
+    ormr_folder_name = ormr_folder_name,
+    python_script_path = python_script_path,
+    args = c("Hello", "world")
+  )
+}
 }
 \seealso{
 use \link{run_python_script} to run a Python

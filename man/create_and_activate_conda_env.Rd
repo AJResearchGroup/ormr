@@ -31,7 +31,7 @@ Creates and activates the Conda environment.
 If the Conda environment already exists, nothing new will happen
 }
 \examples{
-if (!plinkr::is_on_ci()) {
+if (!plinkr::is_on_ci() && is_conda_installed()) {
   create_and_activate_conda_env()
 }
 }

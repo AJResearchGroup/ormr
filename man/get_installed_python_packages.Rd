@@ -36,7 +36,13 @@ a \link[tibble]{tibble} with two rows:
 Get the installed  Python packages and their versions
 }
 \examples{
-get_installed_python_packages()
+# Local python3
+get_installed_python_packages(ormr_folder_name = "python3")
+
+# Conda environment
+if (is_conda_installed()) {
+  get_installed_python_packages()
+}
 }
 \author{
 Richèl J.C. Bilderbeek

@@ -6,7 +6,13 @@
 #'  * `requirement`: the packages requirements
 #'  * `channel`: the package's channel
 #' @examples
-#' get_installed_python_packages()
+#' # Local python3
+#' get_installed_python_packages(ormr_folder_name = "python3")
+#'
+#' # Conda environment
+#' if (is_conda_installed()) {
+#'   get_installed_python_packages()
+#' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
 get_installed_python_packages <- function(

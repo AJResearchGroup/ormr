@@ -39,12 +39,14 @@ the output of this function cannot be silenced, thanks
 to \link[reticulate]{install_miniconda}
 }
 \examples{
-# Install to a temporary folder
-ormr_folder_name <- tempfile()
-create_conda_env(ormr_folder_name = ormr_folder_name)
+if (is_conda_installed()) {
+  # Install to a temporary folder
+  ormr_folder_name <- tempfile()
+  create_conda_env(ormr_folder_name = ormr_folder_name)
 
-# Clean up
-unlink(ormr_folder_name, recursive = TRUE)
+  # Clean up
+  unlink(ormr_folder_name, recursive = TRUE)
+}
 }
 \author{
 Richèl J.C. Bilderbeek

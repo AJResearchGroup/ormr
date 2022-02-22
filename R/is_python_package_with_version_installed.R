@@ -2,31 +2,40 @@
 #' @inheritParams default_params_doc
 #' @return nothing
 #' @examples
-#' ormr_folder_name <- create_default_conda_env()
+#' if (plinkr::is_on_ci()) {
 #'
-#' # Check for an exact version
-#' is_python_package_with_version_installed(
-#'   ormr_folder_name = ormr_folder_name,
-#'   package_name = "pip",
-#'   package_version = "21.3.1"
-#' )
-#' is_python_package_with_version_installed(
-#'   ormr_folder_name = ormr_folder_name,
-#'   package_name = "pip",
-#'   package_version = "==21.3.1"
-#' )
+#'   if (is_conda_installed()) {
+#'     # Use Conda
+#'     ormr_folder_name <- create_default_conda_env()
+#'   } else {
+#'     # Use local python
+#'     ormr_folder_name <- "python3"
+#'   }
 #'
-#' # Check for a range
-#' is_python_package_with_version_installed(
-#'   ormr_folder_name = ormr_folder_name,
-#'   package_name = "pip",
-#'   package_version = "<=21.3.1"
-#' )
-#' is_python_package_with_version_installed(
-#'   ormr_folder_name = ormr_folder_name,
-#'   package_name = "pip",
-#'   package_version = ">=21.3.1"
-#' )
+#'   # Check for an exact version
+#'   is_python_package_with_version_installed(
+#'     ormr_folder_name = ormr_folder_name,
+#'     package_name = "pip",
+#'     package_version = "21.3.1"
+#'   )
+#'   is_python_package_with_version_installed(
+#'     ormr_folder_name = ormr_folder_name,
+#'     package_name = "pip",
+#'     package_version = "==21.3.1"
+#'   )
+#'
+#'   # Check for a range
+#'   is_python_package_with_version_installed(
+#'     ormr_folder_name = ormr_folder_name,
+#'     package_name = "pip",
+#'     package_version = "<=21.3.1"
+#'   )
+#'   is_python_package_with_version_installed(
+#'     ormr_folder_name = ormr_folder_name,
+#'     package_name = "pip",
+#'     package_version = ">=21.3.1"
+#'   )
+#' }
 #' @author Richèl J.C. Bilderbeek
 #' @export
 is_python_package_with_version_installed <- function( # nolint indeed a long function name

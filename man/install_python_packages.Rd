@@ -37,9 +37,21 @@ nothing
 Install one or more Python packages
 }
 \examples{
-install_python_packages(
-  package_names = c("scipy", "readline")
-)
+if (plinkr::is_on_ci()) {
+
+  # Use local python
+ install_python_packages(
+   package_names = c("scipy", "readline"),
+   ormr_folder_name = "python3"
+ )
+
+  # Use Conda
+  if (is_conda_installed()) {
+    install_python_packages(
+      package_names = c("scipy", "readline")
+    )
+  }
+}
 }
 \seealso{
 use \link{install_python_package} to install one

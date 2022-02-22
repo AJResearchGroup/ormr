@@ -37,11 +37,22 @@ nothing
 Install a Python package with a certain version
 }
 \examples{
-if (!plinkr::is_on_ci()) {
+if (plinkr::is_on_ci()) {
+
+  # Use local python
   install_python_package_with_version(
     package_name = "scipy",
-    package_version = "1.5.3"
+    package_version = "1.5.3",
+    ormr_folder_name = "python3"
   )
+
+  # Use conda
+  if (is_conda_installed()) {
+    install_python_package_with_version(
+      package_name = "scipy",
+      package_version = "1.5.3"
+    )
+  }
 }
 }
 \author{
