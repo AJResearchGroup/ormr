@@ -17,7 +17,7 @@ echo "To sign the container, paste your passphrase"
 singularity sign ormr.sif
 
 # Upload the latest version
-singularity push ormr.sif library://richelbilderbeek/default/ormr:0.6.2.1
+singularity push ormr.sif library://richelbilderbeek/default/ormr:0.6.2.2
 
 if [[ $HOSTNAME == "N141CU" ]]; then
   notify-send "Done uploading 'ormr.sif'" "Done uploading 'ormr.sif'"

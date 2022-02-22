@@ -112,5 +112,5 @@ ormr_report(ormr_folder_name = "/opt/ormr")
 
     URL https://github.com/richelbilderbeek/ormr
 
-    VERSION 0.6.2.1
+    VERSION 0.6.2.2
 
