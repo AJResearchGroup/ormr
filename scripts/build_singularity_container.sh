@@ -11,4 +11,7 @@
 #
 sudo -E singularity --quiet build ormr.sif Singularity
 
+if [[ $HOSTNAME == "N141CU" ]]; then
+  notify-send "Done creating 'ormr.sif'" "Done creating 'ormr.sif'"
+fi
 
