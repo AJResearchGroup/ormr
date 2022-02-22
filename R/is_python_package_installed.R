@@ -28,6 +28,7 @@ is_python_package_installed <- function(
   python_version = get_default_python_version(),
   verbose = FALSE
 ) {
+  # 'get_installed_python_packages' will check for 'python3'
   package_name %in% ormr::get_installed_python_packages(
     ormr_folder_name = ormr_folder_name,
     python_version = python_version,

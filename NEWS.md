@@ -2,7 +2,7 @@
 
 Newest versions at top.
 
-## `ormr` v0.6.2.2 (unreleased)
+## `ormr` v0.6.2.2 (2022-02-22)
 
 ### NEW FEATURES
 
@@ -14,7 +14,7 @@ Newest versions at top.
 
 ### BUG FIXES
 
- * None
+ * 'install_python_package_with_version' can now install Python packages using 'python3'
 
 ### DEPRECATED AND DEFUNCT
 
