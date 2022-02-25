@@ -35,8 +35,11 @@ jobs:
         run: singularity run-help ormr.sif
 
       - name: Show script
+        run: cat scripts/run_container.sh
+
+      - name: Show R script
         run: cat scripts/demo_container.R
 
       - name: Run container
-        run: cat scripts/demo_container.R | ./ormr.sif
+        run: ./scripts/run_container.sh
 
