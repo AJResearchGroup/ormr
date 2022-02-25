@@ -1,11 +1,8 @@
 Bootstrap: library
-From: richelbilderbeek/default/plinkr:0.18.0.4
+From: richelbilderbeek/default/plinkr:0.19
 
 %post
-    sed -i 's/$/ universe/' /etc/apt/sources.list
-
     apt-get update
-    apt-get upgrade -y
     apt-get install -y git wget python3-pip
 
     # python3 -m pip install --upgrade pip
@@ -49,7 +46,8 @@ From: richelbilderbeek/default/plinkr:0.18.0.4
     Rscript -e 'ormr::ormr_report(ormr_folder_name = "python3")'
 
 %runscript
-exec R --vanilla --silent --no-echo "$@"
+echo "'ormr.sif' running with arguments '$@'"
+Rscript "$@"
 
 %test
     # echo "*******************************"
@@ -79,6 +77,7 @@ This container has the R package ormr installed.
 To make the container run a script called, e.g. `script.R`, do:
 
 ```
+
 cat script.R | ./ormr.sif
 ```
 
