@@ -2,6 +2,7 @@ Bootstrap: library
 From: richelbilderbeek/default/plinkr:0.19
 
 %post
+    # Install python3
     apt-get update
     apt-get install -y git wget python3-pip
 
