@@ -1,5 +1,5 @@
 Bootstrap: library
-From: richelbilderbeek/default/plinkr:0.19.2.1
+From: richelbilderbeek/default/plinkr:0.20
 
 %post
     # Install python3
