@@ -45,6 +45,9 @@ is_python_package_with_version_installed <- function( # nolint indeed a long fun
   python_version = get_default_python_version(),
   verbose = FALSE
 ) {
+   if(!requireNamespace("semver")){
+    stop("'semver' must be installed to use this function: install.packages('semver')")
+  }
   # 'get_installed_python_packages' will use 'python3'
   # or call create_and_activate_conda_env'
   t <- ormr::get_installed_python_packages(
